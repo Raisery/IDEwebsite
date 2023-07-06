@@ -1,6 +1,5 @@
+import Stripes from '@/components/Stripes/Stripes'
 import './globals.css'
-import radialBg from '../assets/radial-bg.svg'
-import Image from 'next/image'
 
 export const metadata = {
   title: 'Create Next App',
@@ -16,12 +15,7 @@ export default function RootLayout({
     <html lang="en" className='w-full h-full'>
       <body className='w-full h-full'>
         <main className="w-full h-full p-4 bg-[#010C15] flex relative text-white">
-          <Image className='w-full h-full absolute top-0 left-0 z-1' src={radialBg} alt='background' ></Image>
-          <div className='h-full w-4 bg-cyan-700/5 absolute left-0 top-0 z-1'></div> 
-          <div className='h-full w-4 bg-cyan-700/5 absolute left-[24%] top-0 z-1'></div>
-          <div className='h-full w-4 bg-cyan-700/5 absolute left-[48%] top-0 z-1'></div>
-          <div className='h-full w-4 bg-cyan-700/5 absolute left-[72%] top-0 z-1'></div>
-          <div className='h-full w-4 bg-cyan-700/5 absolute right-0 top-0 z-1'></div>
+          <Stripes />
           <div className='w-full h-full bg-transparent border border-[#1E2D3D]/70 rounded-lg z-10'>
             {children}
           </div>
