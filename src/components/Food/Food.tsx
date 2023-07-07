@@ -3,14 +3,17 @@ import foodUp from '../../assets/food-up.svg'
 import foodDown from '../../assets/food-down.svg'
 import Image from 'next/image'
 
-export default function Food() {
-    const [isUp, setIsUp] = useState(true)
-    let foodUpClass = ""
-    let foodDownClass = "hidden"
+type Props = {
+  isReady: boolean,
+}
 
+export default function Food({isReady} : Props) {
+    const [isUp, setIsUp] = useState(isReady)
+    let foodUpClass = "hidden"
+    let foodDownClass = ""
     if(isUp) {
-        foodDownClass = ""
-        foodUpClass = "hidden"
+        foodDownClass = "hidden"
+        foodUpClass = ""
     }
   return (
     <div>
