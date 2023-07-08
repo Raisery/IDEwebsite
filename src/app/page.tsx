@@ -1,22 +1,29 @@
 import Game from '@/components/Game/Game'
 import Header from '@/components/Header/Header'
 import Link from 'next/link'
+import radialBg from "../assets/radial-bg.svg"
+import minRadialBg  from '../assets/min-radial-bg.svg'
+import Image from 'next/image'
+import Footer from '@/components/Footer/Footer'
 
 export default function Home() {
   return (
-    <div className='w-full h-full text-[#E5E9F0] flex flex-col'>
-      <Header />
-      <div className='w-full h-full place-self-center overflow-hidden relative lg:flex lg:flex-col justify-center xl:max-w-[1280px]'>
-        <div className='p-[27px] mt-[25%] md:mt-auto lg:max-w-[45%] lg:m-0'>
+    <div className='w-full h-full text-[#E5E9F0] flex flex-col overflow-hidden relative'>
+      <Header page="Home" />
+      <div className='w-full h-full m-0 p-0 place-self-center relative flex flex-col justify-center xl:max-w-[1280px] 2xl:max-w-[1500px] '>
+        <div className='p-[27px] mt-[20%] md:mt-0 lg:max-w-[45%] lg:m-0 relative'>
+          <Image className='absolute md:hidden max-w-none translate-x-[-20%] translate-y-[-20%]' src={minRadialBg} alt='background'></Image>
           <p className='text-base font-light tracking-wider'>Hi all. I am</p>
           <h1 className='text-7xl font-light'>Lucas Gerard</h1>
           <p className='text-[#43D9AD] text-xl text-light'>&gt; Front-end developer</p>
         </div>
-        <div className='hidden md:flex w-[80%] mx-auto h-[40%] mt-6 mb-6 lg:flex-row lg:absolute lg:w-[50%] lg:h-[60%] lg:right-[5%] lg:top-[50%] lg:translate-y-[-50%]'>
+        <div className='hidden md:flex w-[510px] mx-auto h-[475px] lg:flex-row lg:absolute lg:right-[5%] lg:top-[50%] lg:translate-y-[-50%]'>
+          <Image className=" translate-x-[-20%] translate-y-[-25%] max-w-none absolute hidden md:block" src={radialBg} alt='background'></Image>
           <Game />
         </div>
         <Github />
-      </div>      
+      </div>
+      <Footer />
     </div>
   )
 }

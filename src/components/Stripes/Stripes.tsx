@@ -1,12 +1,11 @@
-import Image from 'next/image'
 import React, { createElement } from 'react'
-import radialBg from '../../assets/radial-bg.svg'
 
+//find a better way to diplay the strpies in the bg
 function Stripes() {        
 
     return (
         <div>
-            <Image className='w-full h-full object-cover absolute top-0 left-0 z-1' src={radialBg} alt='background' ></Image>
+            
             <div className='h-full w-4 bg-cyan-700/5 absolute left-0 top-0 z-1'></div> 
             <div className='h-full w-4 bg-cyan-700/5 absolute left-[6%] top-0 z-1 hidden lg:block'></div>
             <div className='h-full w-4 bg-cyan-700/5 absolute left-[12%] top-0 z-1 hidden sm:block '></div>

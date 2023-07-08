@@ -12,6 +12,7 @@ import upArrow from '../../assets/up-arrow.svg'
 import downArrow from '../../assets/down-arrow.svg'
 import Food from '../Food/Food'
 
+
 type Props = {
     children: string | JSX.Element | JSX.Element[]
 }
@@ -86,16 +87,8 @@ const FoodPanel = () => {
 }
 
 const GameView = () => {
-  return (<div className="flex-auto min-w-[50%] h-full rounded-md relative after:content-[' '] after:absolute after:rounded-md after:top-0 after:left-0 after:right-0 after:bottom-0 after:shadow-max shadow-inside shadow-black/20" ></div>
+  return (<div className="flex-auto min-w-[50%] h-full rounded-md relative after:content-[' '] after:absolute after:rounded-md after:top-0 after:left-0 after:right-0 after:bottom-0 after:shadow-max shadow-inside shadow-[#011627]/90" ></div>
   )
-}
-
-
-
-//Generating the food stack
-function generateFood(quantity: number){
-
-
 }
 
 export default Game
