@@ -100,7 +100,6 @@ export default function Snake() {
     }
 
     function FoodCounter() {
-        console.log(foodList)
         return (
             <div>
                 <div className="pl-4">
@@ -126,11 +125,10 @@ export default function Snake() {
 
     function updateFood(index: number) {
         const currentFoodList = foodList
-        if (!currentFoodList) return console.log('null')
+        if (!currentFoodList) return
         currentFoodList.push(<Food key={index} isReady={false} />)
         currentFoodList.shift()
         setFoodList(currentFoodList)
-        //console.log(foodList)
     }
 
     return (

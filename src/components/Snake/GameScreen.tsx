@@ -5,8 +5,6 @@ import { useInterval } from '@/utils/useInterval'
 import SnakeModel from './SnakeModel'
 import snakeHead from '../../assets/snake-head.svg'
 import Image from 'next/image'
-import { JsxElement } from 'typescript'
-import Food from '../Food/Food'
 
 const gameWidth = 240
 const gameHeight = 400
@@ -26,6 +24,7 @@ function GameScreen({ width, height, setFoodList, foodList }: GameScreenProps) {
     const [snake, setSnake] = useState(new SnakeModel(block))
     const [delay, setDelay] = useState<number | null>(null)
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     function handleOnKeyDown(event: KeyboardEvent) {
         document.removeEventListener('keydown', (e) => handleOnKeyDown(e))
         switch (event.key) {
@@ -87,7 +86,6 @@ function GameScreen({ width, height, setFoodList, foodList }: GameScreenProps) {
     }
 
     function play() {
-        console.log('Start play')
         setDelay(timeDelay)
         setMessagesVisible(false)
     }
@@ -127,7 +125,6 @@ function GameScreen({ width, height, setFoodList, foodList }: GameScreenProps) {
         ]
         newSnake.unshift(newHead)
         if (isThereCollision(newHead)) {
-            console.log('perdu :' + snake.snake[0])
             setDelay(null)
             snake.toggleGameOver()
             setMessagesVisible(true)

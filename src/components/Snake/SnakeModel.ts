@@ -32,13 +32,20 @@ export default class SnakeModel {
 
     setSnake(newSnake: number[][]) {
         this.snake = newSnake
+        //we change the direction only if the head is on a valid block
         if (
             this.snake[0][0] % this.block === 0 &&
             this.snake[0][1] % this.block === 0 &&
             this.nextDirection
         ) {
-            this.direction = this.nextDirection
-            this.nextDirection = null
+            //test if the next direction is not the opposite direction
+            const Xs = this.direction[0] + this.nextDirection[0]
+            const Ys = this.direction[1] + this.nextDirection[1]
+            if (Xs === 0 && Ys === 0) this.nextDirection = null
+            else {
+                this.direction = this.nextDirection
+                this.nextDirection = null
+            }
         }
         if (this.digesting) this.digesting--
     }
