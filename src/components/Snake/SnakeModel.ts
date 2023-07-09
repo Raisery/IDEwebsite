@@ -1,3 +1,5 @@
+'use client'
+
 export default class SnakeModel {
     snake: number[][]
     food: number[]
@@ -14,7 +16,7 @@ export default class SnakeModel {
     constructor(block: number) {
         this.snake = [
             [120, 320],
-            [120, 360],
+            [120, 321],
         ]
         this.food = [80, 240]
         this.direction = [0, -1]

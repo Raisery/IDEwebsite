@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import topLNail from '../../assets/tl-nail.svg'
 import bottomRNail from '../../assets/br-nail.svg'
@@ -18,7 +18,12 @@ type Props = {
 }
 
 export default function Snake() {
-    const [foodLeft, setFoofLeft] = useState(10)
+    const tempFoodList = []
+    for (let i = 0; i < 10; i++) {
+        tempFoodList.push(<Food key={i} isReady={true} />)
+    }
+
+    const [foodList, setFoodList] = useState<JSX.Element[] | null>(tempFoodList)
 
     function Container({ children }: Props) {
         return (
@@ -94,19 +99,15 @@ export default function Snake() {
         )
     }
 
-    function FoodPanel() {
-        const foodlist = []
-
-        for (let i = 0; i < foodLeft; i++) {
-            foodlist.push(<Food key={i} isReady={true} />)
-        }
+    function FoodCounter() {
+        console.log(foodList)
         return (
             <div>
                 <div className="pl-4">
                     {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                     <p className="text-white text-sm">// food left</p>
                     <div className="flex flex-wrap gap-2 w-[90%] mt-2">
-                        {foodlist}
+                        {foodList}
                     </div>
                 </div>
             </div>
@@ -123,14 +124,28 @@ export default function Snake() {
         )
     }
 
+    function updateFood(index: number) {
+        const currentFoodList = foodList
+        if (!currentFoodList) return console.log('null')
+        currentFoodList.push(<Food key={index} isReady={false} />)
+        currentFoodList.shift()
+        setFoodList(currentFoodList)
+        //console.log(foodList)
+    }
+
     return (
         <Container>
             <GameView>
-                <GameScreen width={240} height={400} />
+                <GameScreen
+                    width={240}
+                    height={400}
+                    setFoodList={updateFood}
+                    foodList={foodList}
+                />
             </GameView>
             <div className="w-[40%] flex flex-col ml-4 items-center justify-start">
                 <Panel />
-                <FoodPanel />
+                <FoodCounter />
                 <button className="flex border rounded-lg bg-transparent text-white justify-center mt-auto p-2 text-sm self-end">
                     skip
                 </button>

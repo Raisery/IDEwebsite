@@ -1,6 +1,12 @@
+'use client'
+
 import React, { useEffect, useRef, useState } from 'react'
 import { useInterval } from '@/utils/useInterval'
 import SnakeModel from './SnakeModel'
+import snakeHead from '../../assets/snake-head.svg'
+import Image from 'next/image'
+import { JsxElement } from 'typescript'
+import Food from '../Food/Food'
 
 const gameWidth = 240
 const gameHeight = 400
@@ -10,9 +16,11 @@ const block = 20
 type GameScreenProps = {
     width: number
     height: number
+    setFoodList: (index: number) => void
+    foodList: JSX.Element[] | null
 }
 
-function GameScreen({ width, height }: GameScreenProps) {
+function GameScreen({ width, height, setFoodList, foodList }: GameScreenProps) {
     const [messagesVisible, setMessagesVisible] = useState(true)
     const canvasRef = useRef<HTMLCanvasElement | null>(null)
     const [snake, setSnake] = useState(new SnakeModel(block))
@@ -45,7 +53,9 @@ function GameScreen({ width, height }: GameScreenProps) {
     }
 
     useInterval(() => startGame(), delay)
-    document.addEventListener('keydown', handleOnKeyDown)
+    useEffect(() => {
+        document.addEventListener('keydown', handleOnKeyDown)
+    }, [handleOnKeyDown])
 
     function isThereCollision(head: number[]) {
         if (head[0] < 0 || head[0] >= gameWidth) return true
@@ -70,6 +80,7 @@ function GameScreen({ width, height }: GameScreenProps) {
             let newFood = position
             snake.setFood(newFood)
             snake.decreaseFood()
+            setFoodList(snake.foodLeft - 1)
             return true
         }
         return false
@@ -83,14 +94,20 @@ function GameScreen({ width, height }: GameScreenProps) {
 
     function update() {
         const foodUp = document.getElementById('foodUp') as HTMLCanvasElement
+        const snakeBody = document.getElementById(
+            'snake-head'
+        ) as HTMLCanvasElement
         const context = canvasRef.current?.getContext('2d')
 
         if (context) {
             context.clearRect(0, 0, gameWidth, gameHeight)
+            let r_a = 1
+
+            snake.snake.forEach(([x, y]) => {
+                context.drawImage(snakeBody, x, y, block, block)
+                r_a -= 0.05
+            })
             context.fillStyle = 'green'
-            snake.snake.forEach(([x, y]) =>
-                context.fillRect(x, y, block, block)
-            )
             context.drawImage(
                 foodUp,
                 snake.food[0],
@@ -98,13 +115,6 @@ function GameScreen({ width, height }: GameScreenProps) {
                 block,
                 block
             )
-            context.fillStyle = 'black'
-            for (let i = 0; i < gameWidth; i = i + block) {
-                for (let j = 0; j < gameHeight; j = j + block) {
-                    context.fillRect(0, j, gameWidth, 1)
-                }
-                context.fillRect(i, 0, 1, gameHeight)
-            }
         }
     }
 
@@ -132,6 +142,12 @@ function GameScreen({ width, height }: GameScreenProps) {
 
     return (
         <div>
+            <Image
+                id="snake-head"
+                className="absolute w-0 h-0"
+                src={snakeHead}
+                alt="snake head"
+            ></Image>
             <canvas ref={canvasRef} width={width} height={height}></canvas>
             <button
                 className={
