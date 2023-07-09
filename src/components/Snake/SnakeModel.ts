@@ -77,6 +77,5 @@ export default class SnakeModel {
         this.foodLeft--
         this.digesting += this.block
         this.lenght++
-        console.log('miam')
     }
 }

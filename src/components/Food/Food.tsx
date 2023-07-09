@@ -8,22 +8,13 @@ type Props = {
 }
 
 export default function Food({ isReady }: Props) {
-    const [isUp, setIsUp] = useState(isReady)
-    let foodUpClass = 'hidden'
-    let foodDownClass = ''
-    if (isUp) {
-        foodDownClass = 'hidden'
-        foodUpClass = ''
+    let food = foodDown
+    if (isReady) {
+        food = foodUp
     }
     return (
         <div>
-            <Image
-                id="foodUp"
-                className={foodUpClass}
-                src={foodUp}
-                alt="food"
-            ></Image>
-            <Image className={foodDownClass} src={foodDown} alt="food"></Image>
+            <Image className=" w-5" src={food} alt="food"></Image>
         </div>
     )
 }
