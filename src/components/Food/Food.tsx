@@ -1,6 +1,6 @@
 import React, { createElement, useState } from 'react'
-import foodUp from '../../assets/food-up.svg'
-import foodDown from '../../assets/food-down.svg'
+import foodUp from '../../assets/img/food-up.svg'
+import foodDown from '../../assets/img/food-down.svg'
 import Image from 'next/image'
 
 type Props = {

@@ -3,16 +3,16 @@
 import Game from '@/components/Snake/Snake'
 import Header from '@/components/Header/Header'
 import Link from 'next/link'
-import radialBg from '../assets/radial-bg.svg'
-import minRadialBg from '../assets/min-radial-bg.svg'
+import radialBg from '../assets/img/radial-bg.svg'
+import minRadialBg from '../assets/img/min-radial-bg.svg'
 import Image from 'next/image'
 import Footer from '@/components/Footer/Footer'
 
 export default function Home() {
     return (
         <div className="w-full h-full text-[#E5E9F0] flex flex-col overflow-hidden relative">
-            <Header page="Home" />
-            <div className="w-full h-full m-0 p-0 place-self-center relative flex flex-col justify-center xl:max-w-[1280px] 2xl:max-w-[1500px] ">
+            <Header pagePath="Home" pageName={null} />
+            <div className="w-full h-full m-0 -mt-[55px] p-0 place-self-center relative flex flex-col justify-center xl:max-w-[1280px] 2xl:max-w-[1500px] bg-[#000077]/5">
                 <div className="p-[27px] mt-[20%] md:mt-0 lg:max-w-[45%] lg:m-0 relative">
                     <Image
                         className="absolute md:hidden max-w-none translate-x-[-20%] translate-y-[-20%]"

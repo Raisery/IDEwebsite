@@ -1,22 +1,23 @@
 'use client'
 
 import React, { SyntheticEvent, useState } from 'react'
-import menuSvg from '../../assets/menu.svg'
-import closeSvg from '../../assets/cross.svg'
+import menuSvg from '../../assets/img/menu.svg'
+import closeSvg from '../../assets/img/cross.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import Footer from '../Footer/Footer'
 import Stripes from '../Stripes/Stripes'
 
 type Props = {
-    page: String
+    pagePath: string
+    pageName: string | null
 }
 
 type PropsMenu = {
     isActive: boolean
 }
 
-const Header = ({ page }: Props) => {
+const Header = ({ pagePath, pageName }: Props) => {
     const [isMenuActive, setIsMenuActive] = useState(false)
     // change border to after for the active display on menu
     function handleMenu(event: SyntheticEvent) {
@@ -26,8 +27,8 @@ const Header = ({ page }: Props) => {
     return (
         <nav
             className={
-                (isMenuActive ? 'absolute top-0 bottom-0 ' : '-mb-[55px]') +
-                ' w-full flex flex-col text-base text-[#607B96] z-10 bg-[#010C15] bg-transparent'
+                (isMenuActive ? 'absolute top-0 bottom-0' : 'bg-transparent') +
+                ' w-full flex flex-col text-base text-[#607B96] z-10 bg-[#010C15] '
             }
         >
             {isMenuActive ? <Stripes /> : ''}
@@ -53,7 +54,7 @@ const Header = ({ page }: Props) => {
                             <Link
                                 className={
                                     'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
-                                    (page === 'Home'
+                                    (pagePath === 'Home'
                                         ? 'border-b border-b-[#FEA55F]'
                                         : '')
                                 }
@@ -64,7 +65,7 @@ const Header = ({ page }: Props) => {
                             <Link
                                 className={
                                     'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
-                                    (page === 'About'
+                                    (pagePath === 'About'
                                         ? 'border-b border-b-[#FEA55F]'
                                         : '')
                                 }
@@ -75,7 +76,7 @@ const Header = ({ page }: Props) => {
                             <Link
                                 className={
                                     'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
-                                    (page === 'Projects'
+                                    (pagePath === 'Projects'
                                         ? 'border-b border-b-[#FEA55F]'
                                         : '')
                                 }
@@ -100,6 +101,14 @@ const Header = ({ page }: Props) => {
                     }
                 >
                     <Menu isActive={isMenuActive} />
+                </div>
+                <div
+                    className={
+                        (isMenuActive ? 'hidden' : 'flex') +
+                        ' h-[70px] items-center pl-8 md:hidden'
+                    }
+                >
+                    {pageName ? <p className="text-white">{pageName}</p> : ''}
                 </div>
             </div>
         </nav>
