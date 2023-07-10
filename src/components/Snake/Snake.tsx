@@ -270,24 +270,35 @@ export default function Snake() {
                                     className=""
                                     src={leftArrow}
                                     alt="left arrow"
+                                    onClick={(e) =>
+                                        snake.changeDirection([-1, 0])
+                                    }
                                 ></Image>
                                 <div className="flex h-full items-center flex-col">
                                     <Image
                                         className="mb-1"
                                         src={upArrow}
                                         alt="up arrow"
+                                        onClick={(e) =>
+                                            snake.changeDirection([0, -1])
+                                        }
                                     ></Image>
                                     <Image
                                         className=""
                                         src={downArrow}
                                         alt="down arrow"
+                                        onClick={(e) =>
+                                            snake.changeDirection([0, 1])
+                                        }
                                     ></Image>
                                 </div>
-
                                 <Image
                                     className=""
                                     src={rightArrow}
                                     alt="right arrow"
+                                    onClick={(e) =>
+                                        snake.changeDirection([1, 0])
+                                    }
                                 ></Image>
                             </div>
                         </div>
