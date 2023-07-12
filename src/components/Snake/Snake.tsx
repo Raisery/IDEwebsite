@@ -15,6 +15,7 @@ import SnakeModel from './SnakeModel'
 import { useInterval } from '@/utils/useInterval'
 import snakeHead from '../../assets/img/snake-head.svg'
 import foodSvg from '../../assets/img/food-up.svg'
+import { getEventListeners } from 'events'
 
 const gameWidth = 240
 const gameHeight = 400
@@ -36,11 +37,8 @@ export default function Snake() {
     const [delay, setDelay] = useState<number | null>(null)
     const [foodList, setFoodList] = useState(list)
     const [playing, setPlaying] = useState(false)
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
     function handleOnKeyDown(event: KeyboardEvent) {
-        document.removeEventListener('keydown', (e) => handleOnKeyDown(e))
-        console.log(event.key)
         switch (event.key) {
             case 'ArrowLeft':
                 event.stopPropagation()
@@ -75,8 +73,11 @@ export default function Snake() {
     }
 
     useEffect(() => {
-        document.addEventListener('keydown', handleOnKeyDown)
-    }, [handleOnKeyDown, foodList])
+        window.addEventListener('keydown', handleOnKeyDown)
+        return () => {
+            window.removeEventListener('keydown', handleOnKeyDown)
+        }
+    })
 
     function isThereCollision(head: number[]) {
         if (head[0] < 0 || head[0] >= gameWidth) return true
