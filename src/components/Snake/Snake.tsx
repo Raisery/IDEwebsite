@@ -15,28 +15,25 @@ import SnakeModel from './SnakeModel'
 import { useInterval } from '@/utils/useInterval'
 import snakeHead from '../../assets/img/snake-head.svg'
 import foodSvg from '../../assets/img/food-up.svg'
-import { getEventListeners } from 'events'
-
-const gameWidth = 240
-const gameHeight = 400
-const timeDelay = 10
-const block = 20
-
-type Props = {
-    children: string | JSX.Element | JSX.Element[]
-}
 
 export default function Snake() {
     const list: JSX.Element[] = []
     for (let i = 0; i < 10; i++) [list.push(<Food key={i} isReady={true} />)]
+    const [game, setGame] = useState({
+        width: 0,
+        height: 0,
+        timeDelay: 10,
+        block: 20,
+    })
     const [displayPlayButton, setdisplayPlayButton] = useState(true)
     const [displayCongratMessage, setDisplayCongratMessage] = useState(false)
     const [displayGameOver, setDisplayGameOver] = useState(false)
     const canvasRef = useRef<HTMLCanvasElement | null>(null)
-    const [snake, setSnake] = useState(new SnakeModel(block))
+    const [snake, setSnake] = useState(new SnakeModel(game.block))
     const [delay, setDelay] = useState<number | null>(null)
     const [foodList, setFoodList] = useState(list)
     const [playing, setPlaying] = useState(false)
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     function handleOnKeyDown(event: KeyboardEvent) {
         switch (event.key) {
@@ -69,19 +66,36 @@ export default function Snake() {
 
     //stop the interval hook to refresh the foodList
     if (playing && !delay) {
-        setDelay(timeDelay)
+        setDelay(game.timeDelay)
     }
 
     useEffect(() => {
+        const container = document.getElementById('game-container')
+        console.log(
+            container?.offsetWidth + 'x ' + container?.offsetHeight + ' y'
+        )
+        if (container) {
+            game.width =
+                Math.trunc((2 * container.offsetWidth) / 3 - 8 - 40) -
+                Math.trunc(
+                    ((2 * container.offsetWidth) / 3 - 8 - 40) % game.block
+                )
+            game.height =
+                Math.trunc(container.offsetHeight - 56) -
+                (Math.trunc(container.offsetHeight - 56) % game.block)
+            console.log(game)
+            setGame(game)
+        }
         window.addEventListener('keydown', handleOnKeyDown)
         return () => {
             window.removeEventListener('keydown', handleOnKeyDown)
         }
-    })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [game, handleOnKeyDown])
 
-    function isThereCollision(head: number[]) {
-        if (head[0] < 0 || head[0] >= gameWidth) return true
-        if (head[1] < 0 || head[1] >= gameHeight) return true
+    function isThereCollision(head: number[]): boolean {
+        if (head[0] < 0 || head[0] >= game.width) return true
+        if (head[1] < 0 || head[1] >= game.height) return true
 
         for (let part of snake.snake) {
             if (head[0] === part[0] && head[1] === part[1]) return true
@@ -92,8 +106,8 @@ export default function Snake() {
 
     function foodAte(currentSnake: number[][]) {
         let position = [
-            Math.floor(Math.random() * (gameWidth / block)) * block,
-            Math.floor(Math.random() * (gameHeight / block)) * block,
+            Math.floor(Math.random() * (game.width / game.block)) * game.block,
+            Math.floor(Math.random() * (game.height / game.block)) * game.block,
         ]
         if (
             currentSnake[0][0] === snake.food[0] &&
@@ -112,7 +126,7 @@ export default function Snake() {
     }
 
     function play() {
-        setDelay(timeDelay)
+        setDelay(game.timeDelay)
         setdisplayPlayButton(false)
         setFoodList(list)
         setPlaying(true)
@@ -128,11 +142,11 @@ export default function Snake() {
         const context = canvasRef.current?.getContext('2d')
 
         if (context) {
-            context.clearRect(0, 0, gameWidth, gameHeight)
+            context.clearRect(0, 0, game.width, game.height)
             let r_a = 1
 
             snake.snake.forEach(([x, y]) => {
-                context.drawImage(snakeBody, x, y, block, block)
+                context.drawImage(snakeBody, x, y, game.block, game.block)
                 r_a -= 0.05
             })
             context.fillStyle = 'green'
@@ -140,8 +154,8 @@ export default function Snake() {
                 foodUp,
                 snake.food[0],
                 snake.food[1],
-                block,
-                block
+                game.block,
+                game.block
             )
         }
     }
@@ -159,7 +173,7 @@ export default function Snake() {
             snake.toggleGameOver()
             setdisplayPlayButton(true)
             setDisplayGameOver(true)
-            setSnake(new SnakeModel(block))
+            setSnake(new SnakeModel(game.block))
             setPlaying(false)
         }
         if (!foodAte(newSnake) && !snake.isDigesting()) {
@@ -170,7 +184,7 @@ export default function Snake() {
             setDelay(null)
             setDisplayCongratMessage(true)
             setdisplayPlayButton(true)
-            setSnake(new SnakeModel(block))
+            setSnake(new SnakeModel(game.block))
             setPlaying(false)
         }
         snake.setSnake(newSnake)
@@ -178,8 +192,11 @@ export default function Snake() {
     }
 
     return (
-        <div className="w-full h-full relative p-[40px] border border-[#114944] rounded-lg flex overflow-hidden bg-gradient-to-b from-[#43D9AD]/0 to-[#010C15]/20">
-            <div>
+        <div
+            id="game"
+            className="w-full h-full relative border border-[#114944] rounded-lg flex gap-2 px-5 py-7 overflow-hidden bg-gradient-to-b from-[#43D9AD]/0 to-[#010C15]/20"
+        >
+            <div className="absolute">
                 <Image
                     className="absolute top-[10px] left-[10px]"
                     src={topLNail}
@@ -208,9 +225,14 @@ export default function Snake() {
                 />
             </div>
 
-            <div className="flex-auto w-[240px] h-[400px] rounded-md relative after:content-[' '] after:absolute after:rounded-md after:top-0 after:left-0 after:right-0 after:bottom-0 after:shadow-max shadow-inside shadow-[#011627]/90">
+            <div
+                className={
+                    'flex h-full w-full rounded-md relative shadow-inside shadow-[#011627]/90' +
+                    "after:content-[' '] after:absolute after:rounded-md after:top-0 after:left-0 after:right-0 after:bottom-0 after:shadow-max"
+                }
+            >
                 <div className="w-full h-full overflow-hidden rounded-lg">
-                    <div>
+                    <div className="flex h-full justify-center items-center">
                         <Image
                             id="snake-head"
                             className="absolute w-0 h-0"
@@ -219,8 +241,9 @@ export default function Snake() {
                         ></Image>
                         <canvas
                             ref={canvasRef}
-                            width={gameWidth}
-                            height={gameHeight}
+                            width={game.width}
+                            height={game.height}
+                            className="border border-[#43D9AD]/20 rounded-md "
                         ></canvas>
                         <button
                             className={
@@ -236,7 +259,7 @@ export default function Snake() {
                                 (displayCongratMessage
                                     ? 'absolute '
                                     : 'hidden ') +
-                                'top-[40%] left-[50%] translate-x-[-50%] text-lg text-center z-20'
+                                'top-[55%] left-[50%] translate-x-[-50%] text-lg text-center z-20'
                             }
                         >
                             Congratulation !!!
@@ -244,7 +267,7 @@ export default function Snake() {
                         <span
                             className={
                                 (displayGameOver ? 'absolute ' : 'hidden ') +
-                                'top-[40%] left-[50%] translate-x-[-50%] text-lg z-20'
+                                'top-[55%] left-[50%] translate-x-[-50%] text-lg z-20 text-center'
                             }
                         >
                             Game Over
@@ -252,7 +275,7 @@ export default function Snake() {
                     </div>
                 </div>
             </div>
-            <div className="w-[40%] flex flex-col ml-4 items-center justify-start">
+            <div className=" flex flex-col items-center justify-start">
                 <div>
                     <div className=" h-full">
                         <div className="flex flex-col w-full bg-[#011423]/20 rounded-lg mb-4 pt-4 relative justify-between">

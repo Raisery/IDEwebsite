@@ -10,7 +10,7 @@ import Stripes from '../Stripes/Stripes'
 
 type Props = {
     pagePath: string
-    pageName: string | null
+    pageName?: string
 }
 
 type PropsMenu = {
@@ -24,133 +24,159 @@ const Header = ({ pagePath, pageName }: Props) => {
         setIsMenuActive(!isMenuActive)
     }
 
-    return (
-        <nav
-            className={
-                (isMenuActive ? 'absolute top-0 bottom-0' : 'bg-transparent') +
-                ' w-full flex flex-col text-base text-[#607B96] z-10 bg-[#010C15] '
-            }
-        >
-            {isMenuActive ? <Stripes /> : ''}
-            <div className="w-full h-full">
-                <div className=" md:justify-start h-[55px] w-full px-[18px] flex justify-between border-b border-b-[#1E2D3D]/70">
-                    <p className="flex items-center min-w-[20%] md:border-r border-r-[#1E2D3D]/70 ">
-                        lucas-gerard
-                    </p>
-                    <button className="md:hidden w-[16px]" onClick={handleMenu}>
-                        <Image
-                            className={isMenuActive ? 'hidden' : ''}
-                            src={menuSvg}
-                            alt="menu"
-                        ></Image>
-                        <Image
-                            className={isMenuActive ? '' : 'hidden'}
-                            src={closeSvg}
-                            alt="close"
-                        ></Image>
-                    </button>
-                    <div className="h-full hidden md:flex items-center w-[80%] justify-between">
-                        <div className="h-full flex">
-                            <Link
-                                className={
-                                    'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
-                                    (pagePath === 'Home'
-                                        ? 'border-b border-b-[#FEA55F]'
-                                        : '')
-                                }
-                                href="/"
-                            >
-                                _hello
-                            </Link>
-                            <Link
-                                className={
-                                    'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
-                                    (pagePath === 'About'
-                                        ? 'border-b border-b-[#FEA55F]'
-                                        : '')
-                                }
-                                href="/About"
-                            >
-                                _about-me
-                            </Link>
-                            <Link
-                                className={
-                                    'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
-                                    (pagePath === 'Projects'
-                                        ? 'border-b border-b-[#FEA55F]'
-                                        : '')
-                                }
-                                href="/Projects"
-                            >
-                                _projects{' '}
-                            </Link>
-                        </div>
+    const Button = () => {
+        return (
+            <button className="md:hidden w-[16px]" onClick={handleMenu}>
+                <Image
+                    className={isMenuActive ? 'hidden' : ''}
+                    src={menuSvg}
+                    alt="menu"
+                ></Image>
+                <Image
+                    className={isMenuActive ? '' : 'hidden'}
+                    src={closeSvg}
+                    alt="close"
+                ></Image>
+            </button>
+        )
+    }
 
-                        <Link
-                            className="h-full flex pl-4 border-l border-l-[#1E2D3D]/70 items-center"
-                            href="/Contact"
-                        >
-                            _contact-me
-                        </Link>
-                    </div>
+    const Options = () => {
+        return (
+            <div className="h-full hidden md:flex items-center w-[80%] justify-between">
+                <div className="h-full flex">
+                    <Link
+                        className={
+                            'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
+                            (pagePath === 'Home'
+                                ? 'border-b border-b-[#FEA55F]'
+                                : '')
+                        }
+                        href="/"
+                    >
+                        _hello
+                    </Link>
+                    <Link
+                        className={
+                            'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
+                            (pagePath === 'About'
+                                ? 'border-b border-b-[#FEA55F]'
+                                : '')
+                        }
+                        href="/About"
+                    >
+                        _about-me
+                    </Link>
+                    <Link
+                        className={
+                            'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
+                            (pagePath === 'Projects'
+                                ? 'border-b border-b-[#FEA55F]'
+                                : '')
+                        }
+                        href="/Projects"
+                    >
+                        _projects{' '}
+                    </Link>
                 </div>
-                <div
-                    className={
-                        (isMenuActive ? 'block' : 'hidden') +
-                        ' w-full h-full pb-[55px]'
-                    }
-                >
-                    <Menu isActive={isMenuActive} />
-                </div>
-                <div
-                    className={
-                        (isMenuActive ? 'hidden' : 'flex') +
-                        ' h-[70px] items-center pl-8 md:hidden'
-                    }
-                >
-                    {pageName ? <p className="text-white">{pageName}</p> : ''}
-                </div>
-            </div>
-        </nav>
-    )
-}
 
-function Menu({ isActive }: PropsMenu) {
-    return (
-        <div
-            className={
-                (isActive ? '' : 'hidden') +
-                ' w-full h-full flex flex-col justify-between'
-            }
-        >
-            <div className="h-full w-full flex flex-col text-white/80">
                 <Link
-                    className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
-                    href="/"
-                >
-                    _hello
-                </Link>
-                <Link
-                    className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
-                    href="/About"
-                >
-                    _about-me
-                </Link>
-                <Link
-                    className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
-                    href="/Projects"
-                >
-                    _projects
-                </Link>
-                <Link
-                    className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                    className="h-full flex pl-4 border-l border-l-[#1E2D3D]/70 items-center"
                     href="/Contact"
                 >
                     _contact-me
                 </Link>
             </div>
-            <Footer ignoreResponsive={true} />
-        </div>
+        )
+    }
+
+    const Banner = () => {
+        return (
+            <div>
+                <div
+                    id="header-banner"
+                    className={
+                        'w-full h-14 px-4 flex justify-between ' +
+                        'md:justify-start ' +
+                        'border-b border-b-[#1E2D3D]/70 '
+                    }
+                >
+                    <p
+                        id="header-banner__label"
+                        className={
+                            'flex items-center min-w-[20%] ' +
+                            'md:border-r md:border-r-[#1E2D3D]/70 '
+                        }
+                    >
+                        lucas-gerard
+                    </p>
+                    <Button />
+                    <Options />
+                </div>
+            </div>
+        )
+    }
+
+    const Menu = () => {
+        return (
+            <div
+                className={
+                    'absolute z-50 top-0 right-0 left-0 h-screen flex flex-col justify-between bg-[#010C15] p-4 border border-transparent'
+                }
+            >
+                <div className="flex flex-col relative h-full border border-[#1E2D3D]/70 rounded-lg">
+                    <div className="h-full border-b border-b-[#1E2D3D]/70">
+                        <Stripes />
+                        <Banner />
+                        <div className="w-full flex flex-col text-white/80">
+                            <Link
+                                className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                                href="/"
+                            >
+                                _hello
+                            </Link>
+                            <Link
+                                className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                                href="/About"
+                            >
+                                _about-me
+                            </Link>
+                            <Link
+                                className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                                href="/Projects"
+                            >
+                                _projects
+                            </Link>
+                            <Link
+                                className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                                href="/Contact"
+                            >
+                                _contact-me
+                            </Link>
+                        </div>
+                    </div>
+                    <Footer />
+                </div>
+            </div>
+        )
+    }
+    return (
+        <nav
+            className={
+                'text-base text-[#607B96] bg-[#010C15] border border-[#1E2D3D]/70 rounded-t-lg'
+            }
+        >
+            {isMenuActive ? <Menu /> : <Banner />}
+            <div
+                className={
+                    ' h-16 flex items-center pl-8 ' +
+                    'md:hidden ' +
+                    (pageName ? '' : 'hidden ')
+                }
+            >
+                <p className="text-white">{pageName}</p>
+            </div>
+        </nav>
     )
 }
 

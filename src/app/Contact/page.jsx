@@ -1,15 +1,12 @@
+import Container from '@/components/Container/Container'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import React from 'react'
 
-const Contact = () => {
+export default function Contact() {
     return (
-        <div className="w-full h-full flex flex-col justify-between overflow-hidden relative">
-            <Header pagePath="Contact" pageName="_contact-me" />
-            <div className="w-full h-full"></div>
-            <Footer />
-        </div>
+        <Container pagePath="Contact" pageName="_contact-me">
+            <div className="h-[200px] border border-blue-500">test</div>
+        </Container>
     )
 }
-
-export default Contact

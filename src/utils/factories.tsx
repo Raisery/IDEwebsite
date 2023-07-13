@@ -39,7 +39,11 @@ export function dropDownFactory(data: any) {
                 )
             }
             formatedData.push(
-                <Dropdown key={randomId()} title={tmp.name}>
+                <Dropdown
+                    key={randomId()}
+                    title={tmp.name}
+                    hover={element.hover}
+                >
                     {content}
                 </Dropdown>
             )

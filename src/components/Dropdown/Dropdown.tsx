@@ -13,7 +13,7 @@ type DropdownProps = {
     hover?: boolean
 }
 
-function Dropdown({
+export default function Dropdown({
     children = null,
     title,
     className,
@@ -50,5 +50,3 @@ function Dropdown({
         </div>
     )
 }
-
-export default Dropdown

@@ -2,7 +2,6 @@
 
 import Stripes from '@/components/Stripes/Stripes'
 import './globals.css'
-import Header from '@/components/Header/Header'
 
 export const metadata = {
     title: 'Create Next App',
@@ -16,13 +15,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="w-full h-full">
-            <body className="w-full h-full">
-                <main className="w-full h-full p-4 bg-[#010C15] flex relative text-white">
-                    <Stripes />
-                    <div className="w-full h-full bg-transparent border border-[#1E2D3D]/70 rounded-lg z-10">
-                        {children}
-                    </div>
-                </main>
+            <body className="flex bg-[#010C15] w-full min-h-full">
+                {children}
             </body>
         </html>
     )

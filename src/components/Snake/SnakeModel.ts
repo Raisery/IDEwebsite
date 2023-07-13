@@ -15,11 +15,11 @@ export default class SnakeModel {
 
     constructor(block: number) {
         this.snake = [
-            [120, 320],
-            [120, 321],
+            [block * 2, block * 2],
+            [block * 2, block * 2 - 1],
         ]
         this.food = [80, 240]
-        this.direction = [0, -1]
+        this.direction = [0, 1]
         this.delay = null
         this.gameOver = false
         this.finish = false

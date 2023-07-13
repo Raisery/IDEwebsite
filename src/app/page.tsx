@@ -1,79 +1,107 @@
 'use client'
 
 import Game from '@/components/Snake/Snake'
-import Header from '@/components/Header/Header'
 import Link from 'next/link'
 import radialBg from '../assets/img/radial-bg.svg'
-import minRadialBg from '../assets/img/min-radial-bg.svg'
 import Image from 'next/image'
-import Footer from '@/components/Footer/Footer'
+import Container from '@/components/Container/Container'
 
 export default function Home() {
     return (
-        <div className="w-full h-full text-[#E5E9F0] flex flex-col overflow-hidden relative">
-            <Header pagePath="Home" pageName={null} />
-            <div className="w-full h-full m-0 -mt-[55px] p-0 place-self-center relative flex flex-col justify-center xl:max-w-[1280px] 2xl:max-w-[1500px] bg-[#000077]/5">
-                <div className="p-[27px] mt-[20%] md:mt-0 lg:max-w-[45%] lg:m-0 relative">
-                    <Image
-                        className="absolute md:hidden max-w-none translate-x-[-20%] translate-y-[-20%]"
-                        src={minRadialBg}
-                        alt="background"
-                    ></Image>
+        <Container
+            pagePath="/"
+            footerHiddenOnSmallScreen={true}
+            backgroundImg={radialBg}
+        >
+            <div
+                id="background-img"
+                className="absolute top-0 left-0 h-screen w-screen overflow-hidden -z-10"
+            >
+                <Image
+                    src={radialBg}
+                    alt="background image"
+                    className={
+                        'absolute top-14 max-w-none -translate-x-1/3 h-4/5 ' +
+                        'lg:translate-x-1/4 lg:translate-y-1/4 lg:w-full'
+                    }
+                />
+            </div>
+            <div
+                id="main-content"
+                className={
+                    'relative w-full h-full flex flex-col justify-around overflow-hidden text-white mx-auto ' +
+                    'md:flex-row md:justify-center md:items-center ' +
+                    'xl:max-w-[1280px] xl:justify-around ' +
+                    '2xl:max-w-[1500px]'
+                }
+            >
+                <div
+                    className={
+                        'relative p-7 ' +
+                        'md:flex md:flex-col md:h-full justify-center ' +
+                        'lg:max-w-[45%] lg:m-0 '
+                    }
+                >
                     <p className="text-base font-light tracking-wider">
                         Hi all. I am
                     </p>
-                    <h1 className="text-7xl font-light">Lucas Gerard</h1>
-                    <p className="text-[#43D9AD] text-xl text-light">
+                    <h1 className="text-6xl font-light">Lucas Gerard</h1>
+                    <p className="text-[#43D9AD] text-lg text-light">
                         &gt; Front-end developer
                     </p>
+                    <Github />
                 </div>
-                <div className="hidden md:flex w-[510px] mx-auto h-[475px] lg:flex-row lg:absolute lg:right-[5%] lg:top-[50%] lg:translate-y-[-50%]">
-                    <Image
-                        className=" translate-x-[-20%] translate-y-[-25%] max-w-none absolute hidden md:block"
-                        src={radialBg}
-                        alt="background"
-                    ></Image>
+
+                <div
+                    id="game-container"
+                    className={
+                        'hidden ' +
+                        'md:flex md:h-3/5 md:w-2/5 md:justify-center md:items-center'
+                    }
+                >
                     <Game />
                 </div>
-                <Github />
             </div>
-            <Footer />
-        </div>
+        </Container>
     )
 }
 
 const Github = () => {
     return (
-        <div className="p-[27px] mt-[30%] md:mt-0">
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-            <p className="text-[#607B96] text-sm md:hidden">
-                // find my profile on Github:
-            </p>
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-            <p className="text-[#607B96] text-sm hidden md:block">
-                // complete the game to continue
-            </p>
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-            <p className="text-[#607B96] text-sm hidden md:block">
-                // you can also see it on my Github page
-            </p>
-            <p className="mt-[12px] text-sm">
-                <span className="text-[#4D5BCE]">const </span>
-                <span className="text-[#43D9AD]">githubLink </span> =
-                <Link
-                    className="text-[#E99287]"
-                    href="https://github.com/Raisery"
-                >
-                    {' '}
-                    https://
-                </Link>
-            </p>
-            <Link
-                className="text-sm text-[#E99287]"
-                href="https://github.com/Raisery"
-            >
-                github.com/Raisery
-            </Link>
+        <div className=" h-36 pt-16">
+            <div className="absolute md:block">
+                {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+                <p className="text-[#607B96] text-sm md:hidden">
+                    // find my profile on Github:
+                </p>
+                {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+                <p className="text-[#607B96] text-sm hidden md:block">
+                    // complete the game to continue
+                </p>
+                {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+                <p className="text-[#607B96] text-sm hidden md:block">
+                    // you can also see it on my Github page
+                </p>
+                <div className="md:flex items-center mt-[12px]">
+                    <p className="text-sm">
+                        <span className="text-[#4D5BCE]">const </span>
+                        <span className="text-[#43D9AD]">githubLink </span> =
+                        <Link
+                            className="text-[#E99287]"
+                            href="https://github.com/Raisery"
+                        >
+                            {' '}
+                            https://
+                        </Link>
+                    </p>
+                    <Link
+                        className="text-sm text-[#E99287]"
+                        href="https://github.com/Raisery"
+                    >
+                        github.com/Raisery
+                    </Link>
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,14 +1,11 @@
-import Footer from '@/components/Footer/Footer'
-import Header from '@/components/Header/Header'
+import Container from '@/components/Container/Container'
 import React from 'react'
 
 function Projects() {
     return (
-        <div className="w-full h-full flex flex-col justify-between overflow-hidden relative">
-            <Header pagePath="Projects" pageName="_projects" />
-            <div className="w-full h-full"></div>
-            <Footer />
-        </div>
+        <Container pagePath="/Projects" pageName="_projects">
+            <div className="border w-20 h-[150px] text-white">page</div>
+        </Container>
     )
 }
 
