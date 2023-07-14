@@ -8,11 +8,7 @@ import Container from '@/components/Container/Container'
 
 export default function Home() {
     return (
-        <Container
-            pagePath="/"
-            footerHiddenOnSmallScreen={true}
-            backgroundImg={radialBg}
-        >
+        <Container pagePath="/" footerHiddenOnSmallScreen={true}>
             <div
                 id="background-img"
                 className="absolute top-0 left-0 h-screen w-screen overflow-hidden -z-10"
