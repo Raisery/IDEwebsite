@@ -11,17 +11,19 @@ import Stripes from '../Stripes/Stripes'
 type Props = {
     pagePath: string
     pageName?: string
+    onMenuActive?: React.Dispatch<React.SetStateAction<any>>
 }
 
 type PropsMenu = {
     isActive: boolean
 }
 
-const Header = ({ pagePath, pageName }: Props) => {
+const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
     const [isMenuActive, setIsMenuActive] = useState(false)
     // change border to after for the active display on menu
     function handleMenu(event: SyntheticEvent) {
         setIsMenuActive(!isMenuActive)
+        if (onMenuActive) onMenuActive(!isMenuActive)
     }
 
     const Button = () => {
