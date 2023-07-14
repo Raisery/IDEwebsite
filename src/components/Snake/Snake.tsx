@@ -227,12 +227,12 @@ export default function Snake() {
 
             <div
                 className={
-                    'flex h-full w-full rounded-md relative shadow-inside shadow-[#011627]/90' +
+                    'flex h-full w-full rounded-md relative shadow-inside shadow-[#011627]/90 bg-transparent' +
                     "after:content-[' '] after:absolute after:rounded-md after:top-0 after:left-0 after:right-0 after:bottom-0 after:shadow-max"
                 }
             >
-                <div className="w-full h-full overflow-hidden rounded-lg">
-                    <div className="flex h-full justify-center items-center">
+                <div className="w-full h-full overflow-hidden rounded-lg bg-transparent">
+                    <div className="flex h-full justify-center items-center bg-transparent">
                         <Image
                             id="snake-head"
                             className="absolute w-0 h-0"
@@ -243,7 +243,7 @@ export default function Snake() {
                             ref={canvasRef}
                             width={game.width}
                             height={game.height}
-                            className="border border-[#43D9AD]/20 rounded-md "
+                            className="border border-[#43D9AD]/20 rounded-md bg-transparent"
                         ></canvas>
                         <button
                             className={
