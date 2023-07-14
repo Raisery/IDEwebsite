@@ -6,6 +6,7 @@ import orangeFolder from './../assets/img/orange-folder.svg'
 import greenFolder from './../assets/img/green-folder.svg'
 import blueFolder from './../assets/img/blue-folder.svg'
 import fileSvg from './../assets/img/file.svg'
+import chevron from './../assets/img/chevron.svg'
 
 const ICON: { [key: string]: any } = {
     orange: orangeFolder,
@@ -24,8 +25,8 @@ export function dropDownFactory(data: any) {
 
     // for each node
     for (const element of data) {
-        // Folder
-        if (element.type === 'folder') {
+        // Category or Folder
+        if (element.type === 'folder' || element.type === 'category') {
             //recursive call
             const content = dropDownFactory(element.elements)
             const tmp = { name: element.name }
@@ -33,20 +34,37 @@ export function dropDownFactory(data: any) {
             if (element.composedName) {
                 tmp.name = (
                     <div className="flex gap-2">
-                        <Image src={ICON[element.name.img]} alt="icon" />
+                        <Image
+                            src={ICON[element.name.img]}
+                            alt="icon"
+                            className="h-auto"
+                        />
                         <p className="flex gap-2">{element.name.text}</p>
                     </div>
                 )
             }
-            formatedData.push(
-                <Dropdown
-                    key={randomId()}
-                    title={tmp.name}
-                    hover={element.hover}
-                >
-                    {content}
-                </Dropdown>
-            )
+            if (element.type === 'category') {
+                formatedData.push(
+                    <Dropdown
+                        key={randomId()}
+                        title={tmp.name}
+                        hover={element.hover}
+                    >
+                        {content}
+                    </Dropdown>
+                )
+            } else {
+                formatedData.push(
+                    <Dropdown
+                        key={randomId()}
+                        title={tmp.name}
+                        hover={element.hover}
+                        indicator={chevron}
+                    >
+                        {content}
+                    </Dropdown>
+                )
+            }
         }
         // File
         if (element.type === 'file') {
@@ -70,3 +88,5 @@ export function dropDownFactory(data: any) {
 
     return formatedData
 }
+
+export function contentFactory(folder: null | string) {}

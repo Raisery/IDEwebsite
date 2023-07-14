@@ -1,6 +1,6 @@
 [
     {
-        "type": "folder",
+        "type": "category",
         "name": "personnal-info",
         "hover": true,
         "elements": [
@@ -58,7 +58,7 @@
         ]
     },
     {
-        "type": "folder",
+        "type": "category",
         "name": "professional-info",
         "hover": true,
         "elements": [
@@ -115,13 +115,13 @@
         ]
     },
     {
-        "type": "folder",
+        "type": "category",
         "name": "hobbies",
         "hover": true,
         "elements": []
     },
     {
-        "type": "folder",
+        "type": "category",
         "name": "contacts",
         "hover": true,
         "elements": []
