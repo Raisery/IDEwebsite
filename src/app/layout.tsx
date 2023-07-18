@@ -1,6 +1,4 @@
-'use client'
-
-import Stripes from '@/components/Stripes/Stripes'
+import { ReduxProvider } from '@/store/provider'
 import './globals.css'
 
 export const metadata = {
@@ -16,7 +14,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="w-full h-full">
             <body className="flex bg-[#010C15] w-full min-h-full">
-                {children}
+                <ReduxProvider>{children}</ReduxProvider>
             </body>
         </html>
     )

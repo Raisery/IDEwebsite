@@ -15,10 +15,10 @@
                     {
                         "type": "file",
                         "name": "who-i-am",
-                        "img": "file"
+                        "img": "file",
+                        "content": "I have 5 years of experience in web development lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat officia deserunt mollit anim id est laborum."
                     }
-                ],
-                "content": "I have 5 years of experience in web development lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat officia deserunt mollit anim id est laborum."
+                ]
             },
             {
                 "type": "folder",
@@ -27,13 +27,7 @@
                     "img": "green",
                     "text": "interests"
                 },
-                "elements": [
-                    {
-                        "type": "file",
-                        "name": "?????",
-                        "img": "file"
-                    }
-                ]
+                "elements": []
             },
             {
                 "type": "folder",
@@ -118,7 +112,38 @@
         "type": "category",
         "name": "hobbies",
         "hover": true,
-        "elements": []
+        "elements": [
+            {
+                "type": "folder",
+                "composedName": true,
+                "name": {
+                    "img": "green",
+                    "text": "sport"
+                },
+                "elements": [
+                    {
+                        "type": "file",
+                        "name": "handball",
+                        "img": "file"
+                    }
+                ]
+            },
+            {
+                "type": "folder",
+                "composedName": true,
+                "name": {
+                    "img": "blue",
+                    "text": "music"
+                },
+                "elements": [
+                    {
+                        "type": "file",
+                        "name": "guitar",
+                        "img": "file"
+                    }
+                ]
+            }
+        ]
     },
     {
         "type": "category",

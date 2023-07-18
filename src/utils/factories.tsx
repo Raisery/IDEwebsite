@@ -89,4 +89,8 @@ export function dropDownFactory(data: any) {
     return formatedData
 }
 
-export function contentFactory(folder: null | string) {}
+export function getContent(data: any): any[] {
+    const result: any[] = []
+
+    return result
+}
