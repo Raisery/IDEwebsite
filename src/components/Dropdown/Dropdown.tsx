@@ -1,7 +1,12 @@
 'use client'
 
 import Image from 'next/image'
-import React, { PropsWithChildren, useState, MouseEvent } from 'react'
+import React, {
+    PropsWithChildren,
+    useState,
+    MouseEvent,
+    useEffect,
+} from 'react'
 import triangleSvg from '../../assets/img/triangle.svg'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 
@@ -11,6 +16,9 @@ type DropdownProps = {
     className?: string | null
     indicator?: string | StaticImport
     hover?: boolean
+    active?: boolean
+    id?: string | undefined
+    onClick?: any
 }
 
 export default function Dropdown({
@@ -19,13 +27,16 @@ export default function Dropdown({
     className,
     indicator = triangleSvg,
     hover = false,
+    active = false,
+    id = undefined,
+    onClick = undefined,
 }: DropdownProps) {
-    const [isOpen, setIsOpen] = useState(false)
-
+    const [isOpen, setIsOpen] = useState(active)
+    console.log(active + ' ' + title)
     function handleToggleDropdown(event: MouseEvent<HTMLButtonElement>) {
         event.preventDefault()
-        event.stopPropagation()
         setIsOpen(!isOpen)
+        if (onClick) onClick(id)
     }
     return (
         <div className="w-full relative flex flex-col">
@@ -34,12 +45,13 @@ export default function Dropdown({
                     'pl-6 h-8 flex items-center' +
                     (hover ? ' bg-[#fff]/10 hover:bg-[#fff]/25' : '')
                 }
-                onClick={(e) => handleToggleDropdown(e)}
+                onClick={handleToggleDropdown}
+                id={id}
             >
                 <Image
                     src={indicator}
                     alt="dropdown indicator"
-                    className={(isOpen ? ' rotate-90' : '') + ' mr-4 '}
+                    className={(isOpen ? ' rotate-90' : '') + ' h-auto mr-4 '}
                 />
                 {title}
             </button>
