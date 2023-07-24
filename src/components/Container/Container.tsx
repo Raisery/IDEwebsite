@@ -3,8 +3,6 @@
 import React, { ReactNode, useState } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import Image from 'next/image'
-import Stripes from '../Stripes/Stripes'
 
 type ContainerProps = {
     children?: ReactNode
@@ -31,14 +29,13 @@ export default function Container({
             >
                 {children}
             </div>
-            <Stripes />
             <Footer hiddenOnSmallScreen={footerHiddenOnSmallScreen} />
         </div>
     )
 
     return (
-        <div className="p-4 flex min-h-screen">
-            <div className="flex flex-col w-full  border border-transparent  bg-[#000077]/5 ">
+        <div className="p-4 flex min-h-screen w-full">
+            <div className="flex flex-col w-full bg-[#011627]/95 border border-transparent shadow-[10px_0_60px_80px_rgba(1,12,21,0.95)]">
                 <Header
                     pageName={pageName}
                     pagePath={pagePath}

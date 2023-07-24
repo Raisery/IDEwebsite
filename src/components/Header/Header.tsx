@@ -28,7 +28,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
 
     const Button = () => {
         return (
-            <button className="md:hidden w-[16px]" onClick={handleMenu}>
+            <button className="md:hidden w-4 mr-4" onClick={handleMenu}>
                 <Image
                     className={isMenuActive ? 'hidden' : ''}
                     src={menuSvg}
@@ -45,7 +45,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
 
     const Options = () => {
         return (
-            <div className="h-full hidden md:flex items-center w-[80%] justify-between">
+            <div className="h-full hidden md:flex items-center w-full justify-between">
                 <div className="h-full flex">
                     <Link
                         className={
@@ -98,16 +98,16 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                 <div
                     id="header-banner"
                     className={
-                        'w-full h-14 px-4 flex justify-between ' +
+                        'w-full h-14 flex justify-between ' +
                         'md:justify-start ' +
                         'border-b border-b-[#1E2D3D]/70 '
                     }
                 >
                     <p
-                        id="header-banner__label"
+                        id="dev-name"
                         className={
-                            'flex items-center min-w-[20%] ' +
-                            'md:border-r md:border-r-[#1E2D3D]/70 '
+                            'flex items-center  pl-4 lg:w-1/4 ' +
+                            'md:border-r md:border-r-[#1E2D3D]/70'
                         }
                     >
                         lucas-gerard
@@ -123,12 +123,11 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
         return (
             <div
                 className={
-                    'absolute z-50 top-0 right-0 left-0 h-screen flex flex-col justify-between bg-[#010C15] p-4 border border-transparent'
+                    'absolute z-50 top-0 right-0 left-0 h-screen flex flex-col justify-between p-4 border border-transparent'
                 }
             >
                 <div className="flex flex-col relative h-full border border-[#1E2D3D]/70 rounded-lg">
                     <div className="h-full border-b border-b-[#1E2D3D]/70">
-                        <Stripes />
                         <Banner />
                         <div className="w-full flex flex-col text-white/80">
                             <Link
@@ -165,7 +164,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
     return (
         <nav
             className={
-                'text-base text-[#607B96] bg-[#010C15] border border-[#1E2D3D]/70 rounded-t-lg'
+                'text-base text-[#607B96] border border-[#1E2D3D]/70 rounded-t-lg z-10'
             }
         >
             {isMenuActive ? <Menu /> : <Banner />}
@@ -173,7 +172,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                 className={
                     ' h-16 flex items-center pl-8 ' +
                     'md:hidden ' +
-                    (pageName ? '' : 'hidden ')
+                    (pageName && !isMenuActive ? '' : 'hidden ')
                 }
             >
                 <p className="text-white">{pageName}</p>

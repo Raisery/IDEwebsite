@@ -11,7 +11,7 @@ export default function Home() {
         <Container pagePath="/" footerHiddenOnSmallScreen={true}>
             <div
                 id="background-img"
-                className="absolute top-0 left-0 h-screen w-screen overflow-hidden -z-10"
+                className="absolute top-0 left-0 h-screen w-screen overflow-hidden -z-1"
             >
                 <Image
                     src={radialBg}

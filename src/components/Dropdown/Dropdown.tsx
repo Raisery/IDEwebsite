@@ -32,7 +32,6 @@ export default function Dropdown({
     onClick = undefined,
 }: DropdownProps) {
     const [isOpen, setIsOpen] = useState(active)
-    console.log(active + ' ' + title)
     function handleToggleDropdown(event: MouseEvent<HTMLButtonElement>) {
         event.preventDefault()
         setIsOpen(!isOpen)
