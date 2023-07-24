@@ -37,13 +37,15 @@ export default function Container({
     )
 
     return (
-        <div className="flex flex-col p-4 w-full min-h-screen border border-transparent">
-            <Header
-                pageName={pageName}
-                pagePath={pagePath}
-                onMenuActive={setIsMenuActive}
-            />
-            {isMenuActive ? '' : <Content />}
+        <div className="p-4 flex min-h-screen">
+            <div className="flex flex-col w-full  border border-transparent  bg-[#000077]/5 ">
+                <Header
+                    pageName={pageName}
+                    pagePath={pagePath}
+                    onMenuActive={setIsMenuActive}
+                />
+                {isMenuActive ? '' : <Content />}
+            </div>
         </div>
     )
 }
