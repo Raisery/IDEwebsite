@@ -85,8 +85,8 @@ export default function About() {
     return (
         <Container pagePath="About" pageName="_about-me">
             <div className="w-full h-full flex flex-col justify-between relative text-white">
-                <div className="w-full relative flex flex-col gap-1 lg:flex-row lg:w-full lg:h-full">
-                    <div className=" lg:w-1/4 lg:border-r border-r-[#1E2D3D]/70">
+                <div className="w-full relative flex flex-col gap-1 lg:gap-0 lg:flex-row lg:h-full lg:justify-between">
+                    <div className=" lg:w-custom2 lg:border-r border-r-[#1E2D3D]">
                         <Dropdown
                             id="0"
                             title="personal-info"
@@ -178,7 +178,7 @@ export default function About() {
                             </Dropdown>
                         </Dropdown>
                     </div>
-                    <div className="mt-4 px-6 pb-4 lg:w-full">
+                    <div className="mt-4 px-6 pb-4 w-full">
                         {currentContent}
                     </div>
                 </div>

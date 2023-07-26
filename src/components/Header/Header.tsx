@@ -6,16 +6,11 @@ import closeSvg from '../../assets/img/cross.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import Footer from '../Footer/Footer'
-import Stripes from '../Stripes/Stripes'
 
 type Props = {
     pagePath: string
     pageName?: string
     onMenuActive?: React.Dispatch<React.SetStateAction<any>>
-}
-
-type PropsMenu = {
-    isActive: boolean
 }
 
 const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
@@ -49,8 +44,8 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                 <div className="h-full flex">
                     <Link
                         className={
-                            'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
-                            (pagePath === 'Home'
+                            'h-full flex px-4 border-r border-r-[#1E2D3D] items-center ' +
+                            (pagePath === '/'
                                 ? 'border-b border-b-[#FEA55F]'
                                 : '')
                         }
@@ -60,7 +55,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                     </Link>
                     <Link
                         className={
-                            'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
+                            'h-full flex px-4 border-r border-r-[#1E2D3D] items-center ' +
                             (pagePath === 'About'
                                 ? 'border-b border-b-[#FEA55F]'
                                 : '')
@@ -71,8 +66,8 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                     </Link>
                     <Link
                         className={
-                            'h-full flex px-4 border-r border-r-[#1E2D3D]/70 items-center ' +
-                            (pagePath === 'Projects'
+                            'h-full flex px-4 border-r border-r-[#1E2D3D] items-center ' +
+                            (pagePath === '/Projects'
                                 ? 'border-b border-b-[#FEA55F]'
                                 : '')
                         }
@@ -83,7 +78,12 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                 </div>
 
                 <Link
-                    className="h-full flex pl-4 border-l border-l-[#1E2D3D]/70 items-center"
+                    className={
+                        'h-full flex px-4 border-l border-l-[#1E2D3D] items-center ' +
+                        (pagePath === '/Contact'
+                            ? 'border-b border-b-[#FEA55F]'
+                            : '')
+                    }
                     href="/Contact"
                 >
                     _contact-me
@@ -100,14 +100,14 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                     className={
                         'w-full h-14 flex justify-between ' +
                         'md:justify-start ' +
-                        'border-b border-b-[#1E2D3D]/70 '
+                        'border-b border-b-[#1E2D3D] '
                     }
                 >
                     <p
                         id="dev-name"
                         className={
-                            'flex items-center  pl-4 lg:w-1/4 ' +
-                            'md:border-r md:border-r-[#1E2D3D]/70'
+                            'flex items-center  pl-4 ' +
+                            'md:border-r md:border-r-[#1E2D3D] lg:w-custom'
                         }
                     >
                         lucas-gerard
@@ -126,30 +126,30 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                     'absolute z-50 top-0 right-0 left-0 h-screen flex flex-col justify-between p-4 border border-transparent'
                 }
             >
-                <div className="flex flex-col relative h-full border border-[#1E2D3D]/70 rounded-lg">
-                    <div className="h-full border-b border-b-[#1E2D3D]/70">
+                <div className="flex flex-col relative h-full border border-[#1E2D3D] rounded-lg">
+                    <div className="h-full border-b border-b-[#1E2D3D]">
                         <Banner />
                         <div className="w-full flex flex-col text-white/80">
                             <Link
-                                className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                                className="h-[55px] border-b  border-b-[#1E2D3D] pl-[18px] flex items-center"
                                 href="/"
                             >
                                 _hello
                             </Link>
                             <Link
-                                className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                                className="h-[55px] border-b  border-b-[#1E2D3D] pl-[18px] flex items-center"
                                 href="/About"
                             >
                                 _about-me
                             </Link>
                             <Link
-                                className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                                className="h-[55px] border-b  border-b-[#1E2D3D] pl-[18px] flex items-center"
                                 href="/Projects"
                             >
                                 _projects
                             </Link>
                             <Link
-                                className="h-[55px] border-b  border-b-[#1E2D3D]/70 pl-[18px] flex items-center"
+                                className="h-[55px] border-b  border-b-[#1E2D3D] pl-[18px] flex items-center"
                                 href="/Contact"
                             >
                                 _contact-me
@@ -164,7 +164,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
     return (
         <nav
             className={
-                'text-base text-[#607B96] border border-[#1E2D3D]/70 rounded-t-lg z-10'
+                'text-base text-[#607B96] border border-[#1E2D3D] rounded-t-lg z-10'
             }
         >
             {isMenuActive ? <Menu /> : <Banner />}

@@ -14,15 +14,15 @@ function Footer({ hiddenOnSmallScreen = false }: FooterProps) {
         <footer
             className={
                 (hiddenOnSmallScreen ? 'hidden md:flex ' : 'flex ') +
-                'h-12 justify-between text-[#607B96] border border-[#1E2D3D]/70 rounded-b-lg border-t-transparent'
+                'h-12 justify-between text-[#607B96] border border-[#1E2D3D] rounded-b-lg border-t-transparent'
             }
         >
-            <div className="flex items-center h-full text-[#607B96]">
-                <p className="flex border-r  border-[#1E2D3D]/70 px-4 py-2 md:w-auto h-full items-center">
+            <div className="flex h-full text-[#607B96] lg:w-custom3">
+                <p className="flex w-full border-r  border-[#1E2D3D] px-4 py-2 h-full items-center md:pr-1">
                     find me in:
                 </p>
                 <Link
-                    className="p-3 w-16 flex items-center md:px-4 md:py-2 border-r  border-[#1E2D3D]/70 h-full"
+                    className="p-3 w-16 flex items-center border-r  border-[#1E2D3D] h-full"
                     href="#"
                 >
                     <Image
@@ -32,7 +32,7 @@ function Footer({ hiddenOnSmallScreen = false }: FooterProps) {
                     ></Image>
                 </Link>
                 <Link
-                    className="p-3 w-16 flex items-center md:border-r  border-[#1E2D3D]/70 md:px-4 md:py-2 h-full"
+                    className="p-3 w-16 flex items-center md:border-r  border-[#1E2D3D] h-full"
                     href="#"
                 >
                     <Image
@@ -44,7 +44,7 @@ function Footer({ hiddenOnSmallScreen = false }: FooterProps) {
             </div>
             <Link
                 className={
-                    'h-full p-3 w-16 flex items-center -mr-2 border-l border-[#1E2D3D]/70 text-[#607B96] ' +
+                    'h-full p-3 w-16 flex items-center -mr-2 border-l border-[#1E2D3D] text-[#607B96] ' +
                     ' md:px-4 md:py-2 md:w-auto'
                 }
                 href="https://github.com/Raisery"
