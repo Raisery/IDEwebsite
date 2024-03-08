@@ -1,24 +1,29 @@
-'use client'
+'use client';
 
-import React, { SyntheticEvent, useState } from 'react'
-import menuSvg from '../../assets/img/menu.svg'
-import closeSvg from '../../assets/img/cross.svg'
-import Image from 'next/image'
-import Link from 'next/link'
-import Footer from '../Footer/Footer'
+import React, { SyntheticEvent, useState } from 'react';
+import menuSvg from '../../assets/img/menu.svg';
+import closeSvg from '../../assets/img/cross.svg';
+import Image from 'next/image';
+import Link from 'next/link';
+import Footer from '../Footer/Footer';
+import { useAppSelector } from '@/store/store';
 
 type Props = {
-    pagePath: string
-    pageName?: string
-    onMenuActive?: React.Dispatch<React.SetStateAction<any>>
-}
+    pagePath: string;
+    pageName?: string;
+    onMenuActive?: React.Dispatch<React.SetStateAction<any>>;
+};
 
 const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
-    const [isMenuActive, setIsMenuActive] = useState(false)
+    const [isMenuActive, setIsMenuActive] = useState(false);
     // change border to after for the active display on menu
+    const translation = useAppSelector(
+        (state) => state.langReducer.value.translation
+    );
+
     function handleMenu(event: SyntheticEvent) {
-        setIsMenuActive(!isMenuActive)
-        if (onMenuActive) onMenuActive(!isMenuActive)
+        setIsMenuActive(!isMenuActive);
+        if (onMenuActive) onMenuActive(!isMenuActive);
     }
 
     const Button = () => {
@@ -35,8 +40,8 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                     alt="close"
                 ></Image>
             </button>
-        )
-    }
+        );
+    };
 
     const Options = () => {
         return (
@@ -51,7 +56,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                         }
                         href="/"
                     >
-                        _hello
+                        _{translation.hello}
                     </Link>
                     <Link
                         className={
@@ -62,7 +67,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                         }
                         href="/About"
                     >
-                        _about-me
+                        _{translation.about_me}
                     </Link>
                     <Link
                         className={
@@ -73,7 +78,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                         }
                         href="/Projects"
                     >
-                        _projects{' '}
+                        _{translation.projects}
                     </Link>
                 </div>
 
@@ -86,11 +91,11 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                     }
                     href="/Contact"
                 >
-                    _contact-me
+                    _{translation.contact_me}
                 </Link>
             </div>
-        )
-    }
+        );
+    };
 
     const Banner = () => {
         return (
@@ -116,8 +121,8 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                     <Options />
                 </div>
             </div>
-        )
-    }
+        );
+    };
 
     const Menu = () => {
         return (
@@ -134,33 +139,34 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                                 className="h-[55px] border-b  border-b-[#1E2D3D] pl-[18px] flex items-center"
                                 href="/"
                             >
-                                _hello
+                                _{translation.hello}
                             </Link>
                             <Link
                                 className="h-[55px] border-b  border-b-[#1E2D3D] pl-[18px] flex items-center"
                                 href="/About"
                             >
-                                _about-me
+                                _{translation.about_me}
                             </Link>
                             <Link
                                 className="h-[55px] border-b  border-b-[#1E2D3D] pl-[18px] flex items-center"
                                 href="/Projects"
                             >
-                                _projects
+                                _{translation.projects}
                             </Link>
                             <Link
                                 className="h-[55px] border-b  border-b-[#1E2D3D] pl-[18px] flex items-center"
                                 href="/Contact"
                             >
-                                _contact-me
+                                _{translation.contact_me}
                             </Link>
                         </div>
                     </div>
                     <Footer />
                 </div>
             </div>
-        )
-    }
+        );
+    };
+
     return (
         <nav
             className={
@@ -178,7 +184,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                 <p className="text-white">{pageName}</p>
             </div>
         </nav>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;
