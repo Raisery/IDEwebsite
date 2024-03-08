@@ -14,5 +14,16 @@
     "use_keyboard": "au clavier",
     "arrows_to_play": "flèches pour jouer",
     "skip": "passer",
-    "food_left": "nourriture restante"
+    "food_left": "nourriture restante",
+    "personal_info": "infos-persos",
+    "bio": "bio",
+    "who_i_am": "qui-suis-je",
+    "education": "scolarité",
+    "high_school": "lycée",
+    "university": "université",
+    "hobbies": "passions",
+    "sport": "sport",
+    "handball": "handball",
+    "music": "musique",
+    "guitar": "guitare"
 }

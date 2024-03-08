@@ -14,5 +14,16 @@
     "use_keyboard": "use keyboard",
     "arrows_to_play": "arrows to play",
     "skip": "skip",
-    "food_left": "food left"
+    "food_left": "food left",
+    "personal_info": "personal-info",
+    "bio": "bio",
+    "who_i_am": "who-i-am",
+    "education": "education",
+    "high_school": "high-school",
+    "university": "university",
+    "hobbies": "hobbies",
+    "sport": "sport",
+    "handball": "handball",
+    "music": "music",
+    "guitar": "guitar"
 }

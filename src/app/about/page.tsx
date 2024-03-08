@@ -1,17 +1,22 @@
-'use client'
+'use client';
 
-import React, { useEffect, useState } from 'react'
-import Container from '@/components/Container/Container'
-import Dropdown from '@/components/Dropdown/Dropdown'
-import Image from 'next/image'
-import orangeFolder from '../../assets/img/orange-folder.svg'
-import greenFolder from '../../assets/img/green-folder.svg'
-import blueFolder from '../../assets/img/blue-folder.svg'
-import fileSvg from '../../assets/img/file.svg'
-import chevron from '../../assets/img/chevron.svg'
-import Link from 'next/link'
+import React, { useEffect, useState } from 'react';
+import Container from '@/components/Container/Container';
+import Dropdown from '@/components/Dropdown/Dropdown';
+import Image from 'next/image';
+import orangeFolder from '../../assets/img/orange-folder.svg';
+import greenFolder from '../../assets/img/green-folder.svg';
+import blueFolder from '../../assets/img/blue-folder.svg';
+import fileSvg from '../../assets/img/file.svg';
+import chevron from '../../assets/img/chevron.svg';
+import Link from 'next/link';
+import { useAppSelector } from '@/store/store';
 
 export default function About() {
+    const translation = useAppSelector(
+        (state) => state.langReducer.value.translation
+    );
+
     const content = [
         <div key={Math.trunc(Math.random() * 999) + '-personnal-info'}>
             <div className="flex">
@@ -66,20 +71,20 @@ export default function About() {
                 Distinctio, dicta.
             </p>
         </div>,
-    ]
-    const [currentContent, setCurrentContent] = useState(content[0])
-    const [currentDropDown, setCurrentDropDown] = useState('0')
+    ];
+    const [currentContent, setCurrentContent] = useState(content[0]);
+    const [currentDropDown, setCurrentDropDown] = useState('0');
 
     // change the content and the active dropdown on click on one of them
     function handleClick(id: string) {
-        if (id === currentDropDown) return
-        setCurrentDropDown(id)
-        setCurrentContent(content[Number.parseInt(id)])
+        if (id === currentDropDown) return;
+        setCurrentDropDown(id);
+        setCurrentContent(content[Number.parseInt(id)]);
     }
 
     function handleFileClick(event: React.MouseEvent) {
-        event.preventDefault()
-        event.stopPropagation()
+        event.preventDefault();
+        event.stopPropagation();
     }
 
     return (
@@ -89,7 +94,7 @@ export default function About() {
                     <div className=" lg:w-custom2 lg:border-r border-r-[#1E2D3D]">
                         <Dropdown
                             id="0"
-                            title="personal-info"
+                            title={translation.personal_info}
                             onClick={handleClick}
                             active={currentDropDown === '0'}
                         >
@@ -98,7 +103,7 @@ export default function About() {
                                 title={
                                     <ComposedTitle
                                         img={orangeFolder}
-                                        title="bio"
+                                        title={translation.bio}
                                     />
                                 }
                             >
@@ -108,7 +113,7 @@ export default function About() {
                                     onClick={handleFileClick}
                                 >
                                     <Image src={fileSvg} alt="file" />
-                                    who-i-am
+                                    {translation.who_i_am}
                                 </Link>
                             </Dropdown>
                             <Dropdown
@@ -116,7 +121,7 @@ export default function About() {
                                 title={
                                     <ComposedTitle
                                         img={blueFolder}
-                                        title="education"
+                                        title={translation.education}
                                     />
                                 }
                             >
@@ -125,20 +130,20 @@ export default function About() {
                                     className="flex ml-10 gap-2 "
                                 >
                                     <Image src={fileSvg} alt="file" />
-                                    high-school
+                                    {translation.high_school}
                                 </Link>
                                 <Link
                                     href="#university"
                                     className="flex ml-10 gap-2 "
                                 >
                                     <Image src={fileSvg} alt="file" />
-                                    university
+                                    {translation.university}
                                 </Link>
                             </Dropdown>
                         </Dropdown>
                         <Dropdown
                             id="1"
-                            title="hobbies"
+                            title={translation.hobbies}
                             onClick={handleClick}
                             active={currentDropDown === '1'}
                         >
@@ -147,7 +152,7 @@ export default function About() {
                                 title={
                                     <ComposedTitle
                                         img={orangeFolder}
-                                        title="sport"
+                                        title={translation.sport}
                                     />
                                 }
                             >
@@ -156,7 +161,7 @@ export default function About() {
                                     className="flex ml-10 gap-2 "
                                 >
                                     <Image src={fileSvg} alt="file" />
-                                    handball
+                                    {translation.handball}
                                 </Link>
                             </Dropdown>
                             <Dropdown
@@ -164,7 +169,7 @@ export default function About() {
                                 title={
                                     <ComposedTitle
                                         img={greenFolder}
-                                        title="music"
+                                        title={translation.music}
                                     />
                                 }
                             >
@@ -173,7 +178,7 @@ export default function About() {
                                     className="flex ml-10 gap-2 "
                                 >
                                     <Image src={fileSvg} alt="file" />
-                                    guitar
+                                    {translation.guitar}
                                 </Link>
                             </Dropdown>
                         </Dropdown>
@@ -184,18 +189,18 @@ export default function About() {
                 </div>
             </div>
         </Container>
-    )
+    );
 }
 
 type ComposedTitleProps = {
-    img: any
-    title: string
-}
+    img: any;
+    title: string;
+};
 function ComposedTitle({ img, title }: ComposedTitleProps) {
     return (
         <div className="flex gap-2 ">
             <Image src={img} alt="title" />
             <p>{title}</p>
         </div>
-    )
+    );
 }
