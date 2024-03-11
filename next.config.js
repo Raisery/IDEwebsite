@@ -3,6 +3,6 @@ const nextConfig = {
     /*  output: 'export',
     distDir: 'dist',
     assetPrefix: './', */
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

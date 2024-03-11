@@ -1,0 +1,74 @@
+[
+    {
+        "title": "personnal_info",
+        "img": "null",
+        "chevron": false,
+        "content": [
+            {
+                "title": "bio",
+                "img": "orange_folder",
+                "chevron": true,
+                "content": [
+                    {
+                        "title": "who-i-am",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
+                    }
+                ]
+            },
+            {
+                "title": "education",
+                "img": "blue_folder",
+                "chevron": true,
+                "content": [
+                    {
+                        "title": "high-school",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
+                    },
+                    {
+                        "title": "university",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "hobbies",
+        "img": "null",
+        "chevron": false,
+        "content": [
+            {
+                "title": "sport",
+                "img": "green_folder",
+                "chevron": true,
+                "content": [
+                    {
+                        "title": "handball",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
+                    }
+                ]
+            },
+            {
+                "title": "music",
+                "img": "blue_folder",
+                "chevron": true,
+                "content": [
+                    {
+                        "title": "guitar",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
+                    }
+                ]
+            }
+        ]
+    }
+]

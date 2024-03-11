@@ -48,34 +48,36 @@ function Footer({ hiddenOnSmallScreen = false }: FooterProps) {
                     ></Image>
                 </Link>
             </div>
-            <div>
-                <button
-                    className="border border-[#FFF] hover:cursor-pointer"
-                    onClick={() => {
-                        if (lang.currentLang === LANGUAGES.EN) {
-                            dispatch(changeLang(LANGUAGES.FR));
-                        } else {
-                            dispatch(changeLang(LANGUAGES.EN));
-                        }
-                    }}
+            <div className="flex">
+                <div className="flex h-full px-2 border-l  border-[#1E2D3D]">
+                    <button
+                        className="hover:cursor-pointer"
+                        onClick={() => {
+                            if (lang.currentLang === LANGUAGES.EN) {
+                                dispatch(changeLang(LANGUAGES.FR));
+                            } else {
+                                dispatch(changeLang(LANGUAGES.EN));
+                            }
+                        }}
+                    >
+                        {lang.currentLang}
+                    </button>
+                </div>
+                <Link
+                    className={
+                        'h-full p-3 w-16 flex items-center -mr-2 border-l border-[#1E2D3D] text-[#607B96] ' +
+                        ' md:px-4 md:py-2 md:w-auto'
+                    }
+                    href="https://github.com/Raisery"
                 >
-                    Change Language {lang.currentLang}
-                </button>
+                    <span className=" hidden md:block">@Raisery</span>
+                    <Image
+                        className="md:ml-2"
+                        src={githubSvg}
+                        alt="twitter"
+                    ></Image>
+                </Link>
             </div>
-            <Link
-                className={
-                    'h-full p-3 w-16 flex items-center -mr-2 border-l border-[#1E2D3D] text-[#607B96] ' +
-                    ' md:px-4 md:py-2 md:w-auto'
-                }
-                href="https://github.com/Raisery"
-            >
-                <span className=" hidden md:block">@Raisery</span>
-                <Image
-                    className="md:ml-2"
-                    src={githubSvg}
-                    alt="twitter"
-                ></Image>
-            </Link>
         </footer>
     );
 }

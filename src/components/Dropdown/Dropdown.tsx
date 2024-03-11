@@ -1,25 +1,20 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import React, {
-    PropsWithChildren,
-    useState,
-    MouseEvent,
-    useEffect,
-} from 'react'
-import triangleSvg from '../../assets/img/triangle.svg'
-import { StaticImport } from 'next/dist/shared/lib/get-img-props'
+import Image from 'next/image';
+import React, { useState, MouseEvent } from 'react';
+import triangleSvg from '../../assets/img/triangle.svg';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 type DropdownProps = {
-    children?: React.ReactNode | null
-    title: string | React.ReactNode
-    className?: string | null
-    indicator?: string | StaticImport
-    hover?: boolean
-    active?: boolean
-    id?: string | undefined
-    onClick?: any
-}
+    children?: React.ReactNode | null;
+    title: string | React.ReactNode;
+    className?: string | null;
+    indicator?: string | StaticImport;
+    hover?: boolean;
+    active?: boolean;
+    id?: string | undefined;
+    onClick?: any;
+};
 
 export default function Dropdown({
     children = null,
@@ -31,11 +26,12 @@ export default function Dropdown({
     id = undefined,
     onClick = undefined,
 }: DropdownProps) {
-    const [isOpen, setIsOpen] = useState(active)
+    const [isOpen, setIsOpen] = useState(active);
     function handleToggleDropdown(event: MouseEvent<HTMLButtonElement>) {
-        event.preventDefault()
-        setIsOpen(!isOpen)
-        if (onClick) onClick(id)
+        event.preventDefault();
+        event.stopPropagation();
+        setIsOpen(!isOpen);
+        if (onClick) onClick(id);
     }
     return (
         <div className="w-full relative flex flex-col">
@@ -59,5 +55,5 @@ export default function Dropdown({
                 <div className={className ? className : ''}>{children}</div>
             </div>
         </div>
-    )
+    );
 }

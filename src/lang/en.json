@@ -25,5 +25,21 @@
     "sport": "sport",
     "handball": "handball",
     "music": "music",
-    "guitar": "guitar"
+    "guitar": "guitar",
+    "about_content": {
+        "personnal_info": {
+            "who-i-am": [
+                "Iam passionate of tech, sciences, video games et japanese culture. Iam curious et little bit perfectionnist with strong patience. I can spend hours to try how something is working or to resolve a logic issue.",
+                "Ce que j'aime dans le développement informatique c'est que je trouve qu'il y a un côté \"magique\" à créer une application, un site web, un jeu ou quoique ce soit à partir de simple instructions dans un langage qui n'a rien d'humain.",
+                "Dans ma façon de voir, les développeurs sont ceux qui façonnent le monde de demain. C'est donc naturellement que ma passion et mon enthousiasme me pousse dans cette voie.",
+                "test de creation de nouveau page"
+            ],
+            "high-school": ["Claude Gellée High-School"],
+            "university": ["IUT Nancy-Charlemagne"]
+        },
+        "hobbies": {
+            "handball": ["I love play handball"],
+            "guitar": ["I love play guitar"]
+        }
+    }
 }
