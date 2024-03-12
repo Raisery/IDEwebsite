@@ -27,7 +27,7 @@
     "music": "musique",
     "guitar": "guitare",
     "about_content": {
-        "personnal_info": {
+        "personal_info": {
             "who-i-am": [
                 "Je suis un passioné de technologies, de sciences, de jeux vidéos et de culture japonaise. Je suis curieux et un peu perfectionniste mais armé d'une patience en acier. Je peux passer des heures à essayer de comprendre comment fonctionne quelque chose ou bien à résoudre un problème de logique.",
                 "Ce que j'aime dans le développement informatique c'est que je trouve qu'il y a un côté \"magique\" à créer une application, un site web, un jeu ou quoique ce soit à partir de simple instructions dans un langage qui n'a rien d'humain.",
@@ -38,7 +38,9 @@
         },
         "hobbies": {
             "handball": ["J'aime jouer au handball"],
-            "guitar": ["J'aime jouer de la guitare"]
+            "guitar": ["J'aime jouer de la guitare"],
+            "final_fantasy_xiv": ["FFXIV est le meilleur jeu du monde !"]
         }
-    }
+    },
+    "in_dev_advertising": "Ce site est en cours de développement. Il se peut que certaines pages ou certains contenus soient manquants voire absents"
 }

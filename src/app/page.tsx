@@ -61,7 +61,7 @@ export default function Home() {
                             </p>
                             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                             <p className="text-[#607B96] text-sm hidden md:block">
-                                //{' '}
+                                //
                                 {
                                     translation.you_can_also_see_it_on_my_Github_page
                                 }
@@ -69,17 +69,16 @@ export default function Home() {
                             <div className="md:flex items-center mt-[12px]">
                                 <p className="text-sm">
                                     <span className="text-[#4D5BCE]">
-                                        const{' '}
+                                        const
                                     </span>
                                     <span className="text-[#43D9AD]">
-                                        githubLink{' '}
-                                    </span>{' '}
+                                        githubLink
+                                    </span>
                                     =
                                     <Link
                                         className="text-[#E99287]"
                                         href="https://github.com/Raisery"
                                     >
-                                        {' '}
                                         https://
                                     </Link>
                                 </p>

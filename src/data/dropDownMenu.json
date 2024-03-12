@@ -1,6 +1,6 @@
 [
     {
-        "title": "personnal_info",
+        "title": "personal_info",
         "img": "null",
         "chevron": false,
         "content": [
@@ -63,6 +63,19 @@
                 "content": [
                     {
                         "title": "guitar",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
+                    }
+                ]
+            },
+            {
+                "title": "video_games",
+                "img": "orange_folder",
+                "chevron": true,
+                "content": [
+                    {
+                        "title": "final_fantasy_xiv",
                         "img": "file",
                         "chevron": false,
                         "content": []

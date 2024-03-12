@@ -1,15 +1,16 @@
-'use client'
+'use client';
 
-import React, { ReactNode, useState } from 'react'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import React, { ReactNode, useState } from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import { useAppSelector } from '@/store/store';
 
 type ContainerProps = {
-    children?: ReactNode
-    pageName?: string
-    pagePath: string
-    footerHiddenOnSmallScreen?: boolean
-}
+    children?: ReactNode;
+    pageName?: string;
+    pagePath: string;
+    footerHiddenOnSmallScreen?: boolean;
+};
 
 export default function Container({
     children,
@@ -17,7 +18,7 @@ export default function Container({
     pageName,
     footerHiddenOnSmallScreen = false,
 }: ContainerProps) {
-    const [isMenuActive, setIsMenuActive] = useState(false)
+    const [isMenuActive, setIsMenuActive] = useState(false);
 
     const Content = () => (
         <div className="flex flex-col h-full">
@@ -33,7 +34,7 @@ export default function Container({
             </div>
             <Footer hiddenOnSmallScreen={footerHiddenOnSmallScreen} />
         </div>
-    )
+    );
 
     return (
         <div className="p-4 flex min-h-screen w-full lg:p-14">
@@ -46,5 +47,5 @@ export default function Container({
                 {isMenuActive ? '' : <Content />}
             </div>
         </div>
-    )
+    );
 }

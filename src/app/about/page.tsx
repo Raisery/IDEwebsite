@@ -11,7 +11,7 @@ import blueFolder from '../../assets/img/blue-folder.svg';
 import fileSvg from '../../assets/img/file.svg';
 import chevron from '../../assets/img/chevron.svg';
 import Link from 'next/link';
-import dropDownDatas from '../data/dropDownMenu.json';
+import dropDownDatas from '../../data/dropDownMenu.json';
 import { useAppSelector } from '@/store/store';
 type dropDownDatasType = {
     title: string;
@@ -129,7 +129,9 @@ function Pcontent({
     for (let p of pArray) {
         pList.push(
             <p
-                key={Math.trunc(Math.random() * 999) + '-pGenerated-'}
+                key={
+                    Math.trunc(Math.random() * 999) + '-pGenerated-' + p.length
+                }
                 className={'mb-5 ' + className}
             >
                 {p}
@@ -152,7 +154,11 @@ function AboutContent({ currentDropDown }: AboutContentProps) {
     const id = Number.parseInt(currentDropDown);
 
     const mainDropDownContent: React.JSX.Element[] = [];
+    const mainDropDownIndex =
+        mainDropDownData.title as keyof typeof translation;
     mainDropDownData.content.forEach((folder, index) => {
+        console.log(folder.content);
+        console.log(' index: ' + index);
         mainDropDownContent.push(
             <div
                 key={
@@ -162,9 +168,13 @@ function AboutContent({ currentDropDown }: AboutContentProps) {
                 }
             >
                 <div className="flex">
-                    <h2>{'// ' + mainDropDownData.title}</h2>
+                    <h2>{'// ' + translation[mainDropDownIndex]}</h2>
                     <h3 className=" text-slate-500 ml-2">
-                        / {folder.content[index].title}
+                        {/* Ne pas utiliser l'index du folder pour chercher dans folder.content CONNARD*/}
+                        {'/' +
+                            translation[
+                                folder.title as keyof typeof translation
+                            ]}
                     </h3>
                 </div>
                 {generateFileContent(
@@ -179,7 +189,7 @@ function AboutContent({ currentDropDown }: AboutContentProps) {
 
     function generateFileContent(
         fileTranslationList:
-            | typeof translation.about_content.personnal_info
+            | typeof translation.about_content.personal_info
             | typeof translation.about_content.hobbies,
         folderIndex: number
     ) {
@@ -234,40 +244,3 @@ function ComposedTitle({ img, title }: ComposedTitleProps) {
         </div>
     );
 }
-
-/* function Content(currentDropDown: number) {
-    const content = useAppSelector(
-        (state) =>
-            state.langReducer.value.translation.about_content[currentDropDown]
-    );
-    return (
-        <div key={Math.trunc(Math.random() * 999) + content.title}>
-            <div className="flex">
-                <h2>{'// personal-info'}</h2>
-                <h3 className=" text-slate-500 ml-2"> / bio</h3>
-            </div>
-
-            <p id="who-i-am" className=" text-slate-500 mt-4 mb-4">
-                <h2 className="mb-5">Qui-suis-je ?</h2>
-                {/*generateP(translation.bio_content)}
-            </p>
-            <div className="flex">
-                <h2>{'// personal-info'}</h2>
-                <h3 className=" text-slate-500 ml-2"> / education</h3>
-            </div>
-
-            <p id="high-school" className=" text-slate-500 mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Mollitia consequuntur molestias magnam neque! Voluptate amet,
-                magnam repellat ratione ipsa dolorum sint quaerat at dicta
-                distinctio animi laudantium ducimus aut neque!
-            </p>
-            <p id="university" className=" text-slate-500 mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Mollitia consequuntur molestias magnam neque! Voluptate amet,
-                magnam repellat ratione ipsa dolorum sint quaerat at dicta
-                distinctio animi laudantium ducimus aut neque!
-            </p>
-        </div>
-    );
-} */

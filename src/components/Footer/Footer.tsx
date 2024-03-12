@@ -20,9 +20,13 @@ function Footer({ hiddenOnSmallScreen = false }: FooterProps) {
         <footer
             className={
                 (hiddenOnSmallScreen ? 'hidden md:flex ' : 'flex ') +
-                'h-12 justify-between text-[#607B96] border border-[#1E2D3D] rounded-b-lg border-t-transparent'
+                'h-12 justify-between text-[#607B96] border border-[#1E2D3D] rounded-b-lg border-t-transparent relative'
             }
         >
+            {/*Under dev advertising */}
+            <h3 className="absolute text-red-500 bottom-[50%] left-[50%] translate-x-[-50%] translate-y-[50%] z-10">
+                {lang.translation.in_dev_advertising}
+            </h3>
             <div className="flex h-full text-[#607B96] lg:w-custom3">
                 <p className="flex w-full border-r  border-[#1E2D3D] px-4 py-2 h-full items-center md:pr-1">
                     {lang.translation.find_me_in}:
