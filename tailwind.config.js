@@ -5,6 +5,7 @@ module.exports = {
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
+
     theme: {
         fontWeight: {
             thin: '100',
@@ -34,7 +35,19 @@ module.exports = {
                 custom2: 'calc(33.333333vw - 3.5rem + 10px);',
                 custom3: 'calc(25vw - 3.5rem + 20px)',
             },
+            screens: {
+                tablet: '768px',
+                laptop: '1024px',
+                desktop: '1280px',
+                desktop_xl: '1536px',
+                smartphone_landscape: {
+                    raw: '(max-height: 600px) and (orientation:landscape)',
+                },
+                tablet_landscape: {
+                    raw: '(max-height: 800px) and (min-height: 600px) and (orientation:landscape)',
+                },
+            },
         },
     },
     plugins: [],
-}
+};

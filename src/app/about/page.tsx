@@ -102,8 +102,8 @@ export default function About() {
     return (
         <Container pagePath="About" pageName="_about-me">
             <div className="w-full h-full flex flex-col justify-between relative text-white text-lg">
-                <div className="w-full relative flex flex-col gap-1 lg:gap-0 lg:flex-row lg:h-full lg:justify-between">
-                    <div className=" lg:w-custom2 lg:border-r border-r-[#1E2D3D]">
+                <div className="w-full relative flex flex-col gap-1 laptop:gap-0 laptop:flex-row laptop:h-full laptop:justify-between">
+                    <div className=" laptop:w-custom2 laptop:border-r border-r-[#1E2D3D]">
                         {/*generate dropdown menu */}
                         <DropDownMenu />
                     </div>

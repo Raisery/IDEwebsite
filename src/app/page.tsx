@@ -22,68 +22,70 @@ export default function Home() {
                     alt="background image"
                     className={
                         'absolute top-14 max-w-none -translate-x-1/3 h-4/5 ' +
-                        'lg:translate-x-1/4 lg:translate-y-1/4 lg:w-full'
+                        'laptop:translate-x-1/4 laptop:translate-y-1/4 laptop:w-full'
                     }
                 />
             </div>
             <div
                 id="main-content"
                 className={
-                    'relative w-full h-full flex flex-col justify-around overflow-hidden text-white mx-auto ' +
-                    'md:flex-row md:justify-center md:items-center ' +
-                    'xl:max-w-[1280px] xl:justify-around ' +
-                    '2xl:max-w-[1500px]'
+                    'relative w-full h-full flex flex-col justify-around overflow-hidden text-white mx-auto smartphone_landscape:items-start ' +
+                    'desktop:flex-row tablet:justify-around tablet:items-center ' +
+                    'desktop:max-w-[1280px]' +
+                    'desktop_xl:max-w-[1500px]'
                 }
             >
                 <div
                     className={
-                        'relative p-7 ' +
-                        'md:flex md:flex-col md:h-full justify-center ' +
-                        'lg:max-w-[45%] lg:m-0 '
+                        'relative text-sm ml-5 flex-col ' +
+                        'tablet:flex justify-center ' +
+                        'laptop:m-0'
                     }
                 >
-                    <p className="text-base font-light tracking-wider">
+                    <p className="text-sm font-light tracking-wider laptop:text-xl">
                         {translation.hi_all_i_am}
                     </p>
-                    <h1 className="text-6xl font-light">Lucas Gerard</h1>
-                    <p className="text-[#43D9AD] text-lg text-light">
+                    <h1 className="text-3xl laptop:text-5xl font-light">
+                        Lucas Gerard
+                    </h1>
+                    <p className="text-[#43D9AD] text-sm laptop:text-xl text-light">
                         &gt; Front-end developer
                     </p>
-                    <div className=" h-36 pt-16">
-                        <div className="absolute md:block">
+                    <div className="mt-5 tablet_landscape:hidden">
+                        <div className="">
                             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                            <p className="text-[#607B96] text-sm md:hidden">
+                            <p className="text-[#607B96] text-sm tablet:hidden">
                                 // {translation.find_my_profile_on_Github}:
                             </p>
                             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                            <p className="text-[#607B96] text-sm hidden md:block">
+                            <p className="text-[#607B96] text-sm hidden tablet:block laptop:text-lg">
                                 // {translation.Complete_the_game_to_continue}
                             </p>
                             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                            <p className="text-[#607B96] text-sm hidden md:block">
+                            <p className="text-[#607B96] text-sm hidden tablet:block laptop:text-lg">
                                 //
                                 {
                                     translation.you_can_also_see_it_on_my_Github_page
                                 }
                             </p>
-                            <div className="md:flex items-center mt-[12px]">
-                                <p className="text-sm">
-                                    <span className="text-[#4D5BCE]">
+                            <div className="tablet:flex items-center mt-[12px]">
+                                <p className="text-sm flex gap-2 laptop:text-lg">
+                                    <span className="text-[#4D5BCE] laptop:text-lg">
                                         const
                                     </span>
-                                    <span className="text-[#43D9AD]">
+                                    <span className="text-[#43D9AD] laptop:text-lg">
                                         githubLink
                                     </span>
                                     =
                                     <Link
-                                        className="text-[#E99287]"
+                                        className="text-[#E99287] laptop:text-lg"
                                         href="https://github.com/Raisery"
                                     >
                                         https://
                                     </Link>
                                 </p>
                                 <Link
-                                    className="text-sm text-[#E99287]"
+                                    className="text-sm text-[#E99287] "
                                     href="https://github.com/Raisery"
                                 >
                                     github.com/Raisery
@@ -95,8 +97,8 @@ export default function Home() {
                 <div
                     id="game-container"
                     className={
-                        'hidden ' +
-                        'md:flex md:h-3/5 md:w-2/5 md:justify-center md:items-center'
+                        'hidden smartphone_landscape:hidden ' +
+                        'tablet:flex tablet:h-3/5 tablet:w-[80%] tablet:justify-center tablet:items-center desktop:w-2/5'
                     }
                 >
                     <Game />

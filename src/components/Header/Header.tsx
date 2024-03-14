@@ -28,7 +28,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
 
     const Button = () => {
         return (
-            <button className="md:hidden w-4 mr-4" onClick={handleMenu}>
+            <button className="tablet:hidden w-4 mr-4" onClick={handleMenu}>
                 <Image
                     className={isMenuActive ? 'hidden' : ''}
                     src={menuSvg}
@@ -45,7 +45,7 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
 
     const Options = () => {
         return (
-            <div className="h-full hidden md:flex items-center w-full justify-between">
+            <div className="h-full hidden tablet:flex items-center w-full justify-between">
                 <div className="h-full flex">
                     <Link
                         className={
@@ -104,15 +104,15 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
                     id="header-banner"
                     className={
                         'w-full h-14 flex justify-between ' +
-                        'md:justify-start ' +
+                        'tablet:justify-start ' +
                         'border-b border-b-[#1E2D3D] '
                     }
                 >
                     <p
                         id="dev-name"
                         className={
-                            'flex items-center  pl-4 ' +
-                            'md:border-r md:border-r-[#1E2D3D] lg:w-custom'
+                            'flex items-center  pl-4 text-sm ' +
+                            'tablet:border-r border-r-[#1E2D3D]'
                         }
                     >
                         lucas-gerard
@@ -170,14 +170,14 @@ const Header = ({ pagePath, pageName, onMenuActive }: Props) => {
     return (
         <nav
             className={
-                'text-base text-[#607B96] border border-[#1E2D3D] rounded-t-lg z-10'
+                'text-[#607B96] border border-[#1E2D3D] rounded-t-lg z-10 text-sm'
             }
         >
             {isMenuActive ? <Menu /> : <Banner />}
             <div
                 className={
                     ' h-16 flex items-center pl-8 ' +
-                    'md:hidden ' +
+                    'tablet:hidden ' +
                     (pageName && !isMenuActive ? '' : 'hidden ')
                 }
             >
