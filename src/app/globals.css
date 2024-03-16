@@ -23,6 +23,8 @@
     box-sizing: border-box;
     font-family: 'Fira Code', monospace;
     font-weight: 400;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -32,4 +34,21 @@ body {
 
 .custom-width {
     width: (25vw - 3.5rem);
+}
+
+::-webkit-scrollbar {
+    width: 0.2rem;
+    height: 0.2rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e2d3d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #607b96;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: orange;
 }

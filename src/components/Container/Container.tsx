@@ -1,51 +1,21 @@
 'use client';
 
 import React, { ReactNode, useState } from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import { useAppSelector } from '@/store/store';
 
 type ContainerProps = {
     children?: ReactNode;
-    pageName?: string;
-    pagePath: string;
-    footerHiddenOnSmallScreen?: boolean;
+    className?: string;
 };
 
-export default function Container({
-    children,
-    pagePath,
-    pageName,
-    footerHiddenOnSmallScreen = false,
-}: ContainerProps) {
-    const [isMenuActive, setIsMenuActive] = useState(false);
-
-    const Content = () => (
-        <div className="flex flex-col h-full">
-            <div
-                className={
-                    'border border-[#1E2D3D] h-full ' +
-                    (footerHiddenOnSmallScreen
-                        ? 'rounded-b-lg tablet:rounded-b-none'
-                        : '')
-                }
-            >
-                {children}
-            </div>
-            <Footer hiddenOnSmallScreen={footerHiddenOnSmallScreen} />
-        </div>
-    );
-
+export default function Container({ children }: ContainerProps) {
     return (
-        <div className="p-4 flex min-h-screen w-full laptop:p-6">
-            <div className="flex flex-col w-full bg-[#011627]/60 border border-transparent rounded-lg shadow-[10px_0_60px_80px_rgba(1,12,21,0.95)]">
-                <Header
-                    pageName={pageName}
-                    pagePath={pagePath}
-                    onMenuActive={setIsMenuActive}
-                />
-                {isMenuActive ? '' : <Content />}
-            </div>
+        <div
+            className={
+                'flex flex-col w-full h-full overflow-y-auto border-y border-[#1E2D3D] tablet:' +
+                '' /*shadow-[10px_0_60px_80px_rgba(1,12,21,0.95)] */
+            }
+        >
+            {children}
         </div>
     );
 }

@@ -20,7 +20,7 @@ function Footer({ hiddenOnSmallScreen = false }: FooterProps) {
         <footer
             className={
                 (hiddenOnSmallScreen ? 'hidden tablet:flex ' : 'flex ') +
-                'h-10 justify-between text-[#607B96] text-sm border border-[#1E2D3D] rounded-b-lg border-t-transparent relative'
+                'h-8 justify-between text-[#607B96]  relative tablet:h-10 '
             }
         >
             <div className="flex h-full text-[#607B96] laptop:w-custom3">
@@ -49,7 +49,7 @@ function Footer({ hiddenOnSmallScreen = false }: FooterProps) {
                 </Link>
             </div>
             {/*Under dev advertising */}
-            <h3 className="h-full w-[40%] items-center text-xs text-red-500 text-center hidden tablet:flex">
+            <h3 className="h-full w-[45%] items-center text-red-500 text-center hidden tablet:flex text-xs">
                 {lang.translation.in_dev_advertising}
             </h3>
             <div className="flex">

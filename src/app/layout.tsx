@@ -13,8 +13,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className="w-full h-full">
-            <body className="flex bg-[#010C15] w-full min-h-full">
+        <html lang="en" className="">
+            <body className="flex bg-[#010C15] w-full h-screen text-xs tablet:text-sm laptop:text-base">
                 <Stripes />
                 <ReduxProvider>{children}</ReduxProvider>
             </body>

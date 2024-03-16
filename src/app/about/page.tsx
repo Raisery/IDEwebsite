@@ -13,6 +13,9 @@ import chevron from '../../assets/img/chevron.svg';
 import Link from 'next/link';
 import dropDownDatas from '../../data/dropDownMenu.json';
 import { useAppSelector } from '@/store/store';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+
 type dropDownDatasType = {
     title: string;
     img: string;
@@ -100,21 +103,34 @@ export default function About() {
         return dropDownList;
     }
     return (
-        <Container pagePath="About" pageName="_about-me">
-            <div className="w-full h-full flex flex-col justify-between relative text-white text-lg">
-                <div className="w-full relative flex flex-col gap-1 laptop:gap-0 laptop:flex-row laptop:h-full laptop:justify-between">
-                    <div className=" laptop:w-custom2 laptop:border-r border-r-[#1E2D3D]">
+        <div id="About" className="w-full h-full p-4 ">
+            <div
+                id="About-main"
+                className="w-full h-full flex flex-col bg-[#011627]/60 border border-[#1E2D3D] rounded-lg"
+            >
+                <Header pagePath="About" pageName={translation.about_me} />
+                <Container>
+                    <div
+                        id="main-content"
+                        className={
+                            'w-full h-full flex flex-col text-white smartphone_landscape:flex-row laptop:flex-row'
+                        }
+                    >
                         {/*generate dropdown menu */}
-                        <DropDownMenu />
-                    </div>
-                    <div className="mt-4 px-6 pb-4 w-full">
+                        <div className="w-full h-[20%] overflow-y-auto border-b-[3px] border-[#1E2D3D] scrollbar-custom smartphone_landscape:h-auto smartphone_landscape:border-b-0 smartphone_landscape:w-[50%] smartphone_landscape:border-r-[5px] laptop:w-[25%] laptop:h-full laptop:border-b-0 laptop:border-r-[5px]">
+                            <DropDownMenu />
+                        </div>
+
                         {/*generate dynamic content
                         <AboutContent data={translation}*/}
-                        <AboutContent currentDropDown={currentDropDown} />
+                        <div className="w-full h-[80%] overflow-y-auto p-4 smartphone_landscape:h-auto smartphone_landscape:w-full laptop:w-[75%] laptop:h-full">
+                            <AboutContent currentDropDown={currentDropDown} />
+                        </div>
                     </div>
-                </div>
+                </Container>
+                <Footer />
             </div>
-        </Container>
+        </div>
     );
 }
 

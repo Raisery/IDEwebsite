@@ -280,11 +280,11 @@ export default function Snake() {
                         <div className="flex flex-col w-full bg-[#011423]/20 rounded-lg mb-4 pt-4 relative justify-between">
                             <div>
                                 {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                                <p className="text-white text-sm px-4">
+                                <p className="text-white  px-4">
                                     // {translation.use_keyboard}
                                 </p>
                                 {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                                <p className="text-white text-sm px-4">
+                                <p className="text-white  px-4">
                                     // {translation.arrows_to_play}
                                 </p>
                             </div>
@@ -330,7 +330,7 @@ export default function Snake() {
                 <div>
                     <div className="pl-4">
                         {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                        <p className="text-white text-sm">
+                        <p className="text-white ">
                             // {translation.food_left}
                         </p>
                         <div className="flex flex-wrap gap-2 w-[90%] mt-2">
@@ -338,7 +338,7 @@ export default function Snake() {
                         </div>
                     </div>
                 </div>
-                <button className="flex border rounded-lg bg-transparent text-white justify-center mt-auto p-2 text-sm self-end">
+                <button className="flex border rounded-lg bg-transparent text-white justify-center mt-auto p-2  self-end">
                     {translation.skip}
                 </button>
             </div>
