@@ -26,7 +26,7 @@ export default function Snake() {
     const [game, setGame] = useState({
         width: 0,
         height: 0,
-        timeDelay: 10,
+        timeDelay: 5,
         block: 20,
     });
     const [displayPlayButton, setdisplayPlayButton] = useState(true);
@@ -174,14 +174,18 @@ export default function Snake() {
         }
 
         if (snake.foodLeft === 0) {
-            setDelay(null);
-            setDisplayCongratMessage(true);
-            setdisplayPlayButton(true);
-            setSnake(new SnakeModel(game.block));
-            setPlaying(false);
+            winGame();
         }
         snake.setSnake(newSnake);
         update();
+    }
+
+    function winGame() {
+        setDelay(null);
+        setDisplayCongratMessage(true);
+        setdisplayPlayButton(true);
+        setSnake(new SnakeModel(game.block));
+        setPlaying(false);
     }
 
     return (
@@ -338,7 +342,10 @@ export default function Snake() {
                         </div>
                     </div>
                 </div>
-                <button className="flex border rounded-lg bg-transparent text-white justify-center mt-auto p-2  self-end">
+                <button
+                    className="flex border rounded-lg bg-transparent text-white justify-center mt-auto p-2  self-end"
+                    onClick={() => winGame()}
+                >
                     {translation.skip}
                 </button>
             </div>
