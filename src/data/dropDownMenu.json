@@ -33,6 +33,25 @@
                         "img": "file",
                         "chevron": false,
                         "content": []
+                    },
+                    {
+                        "title": "after-school",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
+                    },
+
+                    {
+                        "title": "restart",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
+                    },
+                    {
+                        "title": "freelance",
+                        "img": "file",
+                        "chevron": false,
+                        "content": []
                     }
                 ]
             }
@@ -75,7 +94,7 @@
                 "chevron": true,
                 "content": [
                     {
-                        "title": "final_fantasy_xiv",
+                        "title": "gaming",
                         "img": "file",
                         "chevron": false,
                         "content": []

@@ -8,19 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useAppSelector } from '@/store/store';
 import { LANGUAGES, changeLang } from '@/store/features/langSlice';
 
-type FooterProps = {
-    hiddenOnSmallScreen?: boolean;
-};
-
-function Footer({ hiddenOnSmallScreen = false }: FooterProps) {
+function Footer() {
     const lang = useAppSelector((state) => state.langReducer.value);
     const dispatch = useDispatch();
 
     return (
         <footer
             className={
-                (hiddenOnSmallScreen ? 'hidden tablet:flex ' : 'flex ') +
-                'h-8 justify-between text-[#607B96]  relative tablet:h-10 '
+                'flex h-8 justify-between text-[#607B96]  relative tablet:h-10 '
             }
         >
             <div className="flex h-full text-[#607B96] laptop:w-custom3">
