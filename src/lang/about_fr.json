@@ -1,0 +1,80 @@
+{
+    "personal_info": {
+        "who-i-am": [
+            "Je suis un passioné de technologies, de sciences, de jeux vidéos et de culture japonaise. Je suis curieux et un peu perfectionniste mais armé d'une patience en acier. Je peux passer des heures à essayer de comprendre comment fonctionne quelque chose ou bien à résoudre un problème de logique.",
+            "Ce que j'aime dans le développement informatique c'est que je trouve qu'il y a un côté \"magique\" à créer une application, un site web, un jeu ou quoique ce soit à partir de simple instructions dans un langage qui n'a rien d'humain.",
+            "Dans ma façon de voir, les développeurs sont ceux qui façonnent le monde de demain. C'est donc naturellement que ma passion et mon enthousiasme me pousse dans cette voie."
+        ],
+        "high-school": [
+            "J'ai fait mes années d'études élémentaires au Lycée Claude Gellée à Epinal. J'ai suivi un parcours scientifique avec spécialité SVT et ISN (Initiation aux sciences du numérique).",
+            "Ma spécialité ISN, même si ce n'était pas très poussé, m'a fait découvrir comment fonctionnait un ordinateur et j'ai aussi écrit mes premières lignes de code",
+            "J'ai également fait mon premier jeu en Python: un masterMind.",
+            "Je me souviendrais toute ma vie de ce que j'ai ressenti au moment de lancer mon programme et que je pouvais enfin jouer à mon propre jeu !",
+            "C'était un mélange de fierté et de satisfaction que j'éprouve encore aujourd'hui lorsque je travaille sur mes projets.",
+            "Il était devenu évident pour moi que mon futur métier serait dans le développement informatique."
+        ],
+        "university": [
+            "Suite à l'obtention de mon BAC S avec mention (eh oui quand même). Je me suis dirigé vers un DUT (Diplôme Universitaire Technologique) à l'IUT (Institut universitaire technologique) de Nancy-Charlemagne.",
+            "Dès le premier jour, tout ce que j'ai pu voir, lire, apprendre ou faire m'a confirmé sans aucun doute que j'avais trouvé ma voie.",
+            "J'avais déjà de bonnes bases mais j'ai approfondi mes connaissances et aussi j'ai appris de nouveaux langages (Principalement le Java et le C).",
+            "J'ai découvert:",
+            "- La programmation orienté objet (dont je n'ai pas saisi tout de suite l'utilité et le fonctionnement mais qui me paraît maintenant incontournable et tellement pratique).",
+            "- Le reseau (domaine extrêmement intéressant qui à failli me convaincre de me diriger vers lui)",
+            "- Les bases de données (Avec MySQL et PostgreSQL)",
+            "- l'algorithmie (Etrangement, de toutes les matières je pense que c'est celle que j'aimais le plus. Pendant ces cours on avait seulement un crayon et notre cahier. Pas d'informatique, pas d'écran, pas d'IDE juste du papier et un crayon. Mais moi mon truc c'est résoudre des problèmes donc enfin de compte pas si étrange que ça au final 🙂)"
+        ],
+        "after-school": [
+            "Aprés mon DUT, j'ai voulu intégrer une licence en alternance.",
+            "Je m'y suis pris un peu tard je l'avoue mais après quelques rapides recherches, j'ai trouvé une entreprise qui m'accepterait en alternance.",
+            "Je vous passe les details mais je n'ai finalement pas pu integrer de license en alternance car l'entreprise à pris un autre stagiaire à ma place",
+            "Cette année là je me suis senti abattu et tellement déçu que je ne savais pas quoi faire.",
+            "Mes proches m'ont conseillé de m'inscrire dans une agence d'intérim afin de ne pas rester à rien faire.",
+            "J'ai été engagé dans une entreprise de réseau fibre optique et je suis resté 5 ans dans ce domaine.",
+            "Durant mon temps libre je continuais à apprendre le développement grâce à des sites comme Openclassroom, StackOverflow, Youtube...",
+            "Pendant 5ans je me suis perdu dans le domaine de la fibre optique avant de me rendre compte que je n'étais pas à ma place et que je fesais une énorme erreur de parcours.",
+            "Je décide donc de quitter l'entreprise pour laquelle je travaillais afin de poursuivre mon désir de travailler dans le développement."
+        ],
+        "restart": [
+            "Avec l'aide de pôle emploi, j'intègre une formation diplômante de développeur/concepteur Web chez Openclassrooms.",
+            "Je pense que je n'abuserai pas en disant que cette décision m'a fait revivre. Certes la formation était intense mais je prenais vraiment beaucoup de plaisir à faire ce que j'aime.",
+            "Cette formation m'a permis d'apprendre:",
+            "- à intégrer une page web à partir d'une maquette (sur Figma par exemple).",
+            "- à bien utiliser GIT.",
+            "- React, NodeJS, Redux, MangoDB, Sass",
+            "- L'architecture API REST",
+            "- La méthodologie Agile",
+            "- à lire et créer des diagramme USE CASE",
+            "- à respecter un cahier des charges",
+            "- à tester mon code avec Jest (test unitaire)",
+            "- à rendre mon code robuste et valider les normes (W3C, ESLint)",
+            "Après l'obtention de mon diplôme, j'ai commencé à créer des petits projets persos tel que ce site web (Tous mes projets sont disponibles sur mon GitHub 🙂) mais aussi à chercher du travail. Mais n'ayant pas d'expériences dans le domaine avec un CV très atypique, les entreprises ne donnent pas suite à mes candidatures."
+        ],
+        "freelance": [
+            "Plusieurs semaines passent et toujours aucune réponse favorable. Pour ne pas rester au chômage, je décide de prendre un petit boulot à LA POSTE afin de me permettre de continuer à postuler dans le développement web.",
+            "C'est au bout de quelques mois de candidatures infructueuses que je décide de créer mon auto-entreprise car pendant mes nombreuses candidatures et recherches d'entreprises, j'ai constaté que beaucoup d'offres d'emploi concernaient des freelances.",
+            "Et voilà : LGPT Web est créé le 1er mars 2024 ! 👏",
+            "Travaillons ensemble dès maintenant ! contactez moi !"
+        ]
+    },
+    "hobbies": {
+        "handball": [
+            "Je pratique le handball depuis mes 14ans. C'est une passion transmise par mon père qui touche toute la famille. J'ai évolué jusqu'en championnat de France. puis quelques matchs en national 3.",
+            "J'ai malheureusement dû arrêter pendant 2 ans à cause de mon travail à ce moment-là. Lorsque j'ai pu reprendre, j'avais perdu beaucoup de niveau et je n'arrêtais pas de me blesser.",
+            "Donc aujourd'hui je continue le handball mais à un niveau bien inférieur pour le plaisir et la forme."
+        ],
+        "guitar": [
+            "Transmise par mon père également, la musique est présente tous les jours de ma vie.",
+            "J'ai commencé à apprendre la guitare en empruntant celle de mon père.",
+            "J'ai longtemps appris en autodidacte mais vers mes 12ans, mes parents m'ont inscrit à des cours de guitare classique (que je n'ai pas aimé 😭)",
+            "J'ai ensuite essayé la guitare électrique (c'était mieux) mais le coté scolaire, avec des devoirs à faire, des répétitions, etc… me retiraient le plaisir de jouer donc finalement j'ai arrêté les cours et j'ai continué à apprendre par moi-même.",
+            "Aujourd'hui, je joue et je chante de temps en temps pour me détendre ou à de très rares occasions festives."
+        ],
+        "gaming": [
+            "Ma passion pour l'informatique m'a évidemment amené à découvrir les jeux vidéo. Mon premier vrai jeu à été Zelda the wind waker sur Gamecube qui m'a fait vivre une vraie aventure.",
+            "Pour moi, le jeu vidéo est un art très complexe et complet. Pouvoir incarner un personnage, vivre une aventure, être en immersion dans une histoire, c'est quelque chose qui m'a tout de suite beaucoup plu.",
+            "J'ai récemment terminé l'extension Endwalker de Final Fantasy XIV et il n'y a pas de mots pour décrire ce que j'ai ressentis tout au long de l'aventure à part peut être extraordinaire et magnifique ( ce sont des euphémismes et je pèse mes mots).",
+            "J'aime aussi le côté compétitif que propose le jeu vidéo. Rocket League (mon préféré), League of legend (même si je suis Bronze :/), Overwatch ( au passé malheureusement) et beaucoup d'autres.",
+            "Bref je suis un Gamer."
+        ]
+    }
+}

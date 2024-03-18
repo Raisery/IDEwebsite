@@ -12,6 +12,7 @@ export default function About() {
     const translation = useAppSelector(
         (state) => state.langReducer.value.translation
     );
+
     const [currentDropDown, setCurrentDropDown] = useState('0');
 
     return (
@@ -81,6 +82,9 @@ function AboutContent({ currentDropDown }: AboutContentProps) {
     const translation = useAppSelector(
         (state) => state.langReducer.value.translation
     );
+    const aboutTranslation = useAppSelector(
+        (state) => state.langReducer.value.aboutTranslation
+    );
     const mainDropDownData = dropDownDatas[Number.parseInt(currentDropDown)];
     const id = Number.parseInt(currentDropDown);
 
@@ -107,8 +111,8 @@ function AboutContent({ currentDropDown }: AboutContentProps) {
                     </h3>
                 </div>
                 {generateFileContent(
-                    translation.about_content[
-                        mainDropDownData.title as keyof typeof translation.about_content
+                    aboutTranslation[
+                        mainDropDownData.title as keyof typeof aboutTranslation
                     ],
                     index
                 )}
@@ -118,8 +122,8 @@ function AboutContent({ currentDropDown }: AboutContentProps) {
 
     function generateFileContent(
         fileTranslationList:
-            | typeof translation.about_content.personal_info
-            | typeof translation.about_content.hobbies,
+            | typeof aboutTranslation.personal_info
+            | typeof aboutTranslation.hobbies,
         folderIndex: number
     ) {
         const pFileList: React.JSX.Element[] = [];
