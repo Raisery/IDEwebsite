@@ -1,5 +1,6 @@
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 import Stripes from '@/components/Server/Stripes/Stripes';
 import Header from '@/components/Client/Header/Header';
 import Footer from '@/components/Client/Footer/Footer';
@@ -28,6 +29,7 @@ export default function RootLayout({ children, params }: LayoutProps) {
     return (
         <html lang={locale} className="">
             <SpeedInsights />
+            <Analytics />
             <body className="flex bg-[#010C15] w-full h-screen text-xs tablet:text-sm laptop:text-base">
                 <Stripes />
                 <StoreProvider>
