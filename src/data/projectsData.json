@@ -1,0 +1,56 @@
+{
+    "filters": {
+        "list": [
+            {
+                "name": "React",
+                "svgName": "@/assets/img/filters_icon/react_logo.svg"
+            },
+            {
+                "name": "HTML",
+                "svgName": "@/assets/img/filters_icon/html_logo.svg"
+            },
+            {
+                "name": "Tailwind",
+                "svgName": "@/assets/img/filters_icon/tailwind_logo.svg"
+            },
+            {
+                "name": "CSS",
+                "svgName": "@/assets/img/filters_icon/css_logo.svg"
+            },
+            {
+                "name": "Sass",
+                "svgName": "@/assets/img/filters_icon/sass_logo.svg"
+            },
+            {
+                "name": "TypeScript",
+                "svgName": "@/assets/img/filters_icon/ts_logo.svg"
+            },
+            {
+                "name": "JavaScript",
+                "svgName": "@/assets/img/filters_icon/js_logo.svg"
+            },
+            {
+                "name": "NextJS",
+                "svgName": "@/assets/img/filters_icon/nextjs_logo.svg"
+            }
+        ]
+    },
+    "projects": [
+        {
+            "id": 1,
+            "title": "IDEwebsite",
+            "techs": ["React", "TypeScript", "TailWind"],
+            "translationKey": "IDEwebsite",
+            "path": "@/app/assets/img/IDEwebsite/",
+            "github": "http:/github.com"
+        },
+        {
+            "id": 2,
+            "title": "test",
+            "techs": ["NextJS", "TypeScript", "CSS"],
+            "translationKey": "test",
+            "path": "@/app/assets/img/test/",
+            "github": "http:/github.com"
+        }
+    ]
+}

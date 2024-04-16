@@ -36,7 +36,7 @@ export default function Footer() {
                     href="#"
                 >
                     <Image
-                        className="h-full"
+                        className="h-full w-auto"
                         src={twitterSvg}
                         alt="twitter"
                     ></Image>
@@ -46,7 +46,7 @@ export default function Footer() {
                     href="#"
                 >
                     <Image
-                        className="h-full"
+                        className="h-full w-auto"
                         src={facebookSvg}
                         alt="facebook"
                     ></Image>

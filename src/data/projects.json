@@ -1,9 +1,0 @@
-[
-    {
-        "title": "IDEwebsite",
-        "techs": ["React", "TypeScript", "TailWind"],
-        "translation-key": "IDEwebsite",
-        "path": "@/app/assets/img/IDEwebsite/",
-        "github": "http:/github.com"
-    }
-]

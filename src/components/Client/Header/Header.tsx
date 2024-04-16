@@ -18,7 +18,7 @@ const Header = ({ onMenuActive }: Props) => {
     const [isMenuActive, setIsMenuActive] = useState(false);
     // change border to after for the active display on menu
     const pagePath = usePathname();
-    const pageName = pagePath.split('/').slice(-1);
+    const pageName = pagePath.split('/').slice(-1).toString();
     const t = useTranslations('Header');
     const locale = useLocale();
 
@@ -51,7 +51,7 @@ const Header = ({ onMenuActive }: Props) => {
                     <Link
                         className={
                             'h-full flex px-4 border-r border-r-[#1E2D3D] items-center ' +
-                            (pagePath === '/'
+                            (pageName === locale
                                 ? 'border-b border-b-[#FEA55F]'
                                 : '')
                         }
@@ -62,7 +62,7 @@ const Header = ({ onMenuActive }: Props) => {
                     <Link
                         className={
                             'h-full flex px-4 border-r border-r-[#1E2D3D] items-center ' +
-                            (pagePath === 'About'
+                            (pageName === 'about'
                                 ? 'border-b border-b-[#FEA55F]'
                                 : '')
                         }
@@ -73,7 +73,7 @@ const Header = ({ onMenuActive }: Props) => {
                     <Link
                         className={
                             'h-full flex px-4 border-r border-r-[#1E2D3D] items-center ' +
-                            (pagePath === '/Projects'
+                            (pageName === 'projects'
                                 ? 'border-b border-b-[#FEA55F]'
                                 : '')
                         }
@@ -86,7 +86,7 @@ const Header = ({ onMenuActive }: Props) => {
                 <Link
                     className={
                         'h-full flex px-4 border-l border-l-[#1E2D3D] items-center ' +
-                        (pagePath === '/Contact'
+                        (pageName === '/contact'
                             ? 'border-b border-b-[#FEA55F]'
                             : '')
                     }
